@@ -39,11 +39,15 @@ int main(int ac, char **av)
 	// mlx_key_hook(new_window, deal_key, (void *)0);
 	// mlx_loop(mlx_ptr);
 	
-	t_map **matrix;
-	int y = 0;
-	int x = 0;
-	printf("ok\n");
-	matrix = ft_read_map(av[1]);
-	printf("%d \n",matrix[y][x].z);
+	// int **matrix;
+	// int y = 0;
+	// int x = 0;
+	// printf("ok\n");
+	int **map;
+	map = ft_read_map(av[1]);
+	if (map)
+		ft_free_tab(map);
+	return (0);
+	// printf("%d \n",matrix[y][x].z);
 
 }

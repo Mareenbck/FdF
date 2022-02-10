@@ -38,6 +38,7 @@ int   **ft_read_map(char *file);
 int	count_words(char const *s, char c);
 int   **ft_init_map(int fd);
 void   ft_fill_map(t_data **matrix, int y, char *line);
+void	**ft_free_tab(int **tab);
 
 
 

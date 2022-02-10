@@ -79,7 +79,7 @@ static char	*ft_read_new_file(char *str)
 		i++;
 	if (str[i] == '\0')
 	{
-		//free(str);
+		free(str);
 		return (NULL);
 	}
 	if (str[i] == '\n')
