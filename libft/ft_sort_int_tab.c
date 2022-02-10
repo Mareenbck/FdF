@@ -6,7 +6,7 @@
 /*   By: mbascuna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 16:48:16 by mbascuna          #+#    #+#             */
-/*   Updated: 2021/09/09 18:28:32 by mbascuna         ###   ########.fr       */
+/*   Updated: 2022/02/05 11:25:59 by mbascuna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,5 @@ int	*ft_sort_int_tab(int *tab, int size)
 		}
 		i++;
 	}
-  return (tab);
+	return (tab);
 }

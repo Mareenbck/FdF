@@ -6,7 +6,7 @@
 /*   By: mbascuna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 10:28:04 by mbascuna          #+#    #+#             */
-/*   Updated: 2021/11/29 10:41:59 by mbascuna         ###   ########.fr       */
+/*   Updated: 2022/02/07 10:21:06 by mbascuna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,11 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	if (s && fd)
-	{
-		while (s[i])
-		{
-			ft_putchar_fd(s[i], fd);
-			i++;
-		}
-	}
+	if (!s || !fd)
+		return ;
+	i = ft_strlen(s);
+	write(fd, s, i);
 }

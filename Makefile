@@ -1,5 +1,9 @@
 NAME	= fdf 
 
+LIB_DIR = ./libft
+
+LIBFT	= ./libft/libft.a
+
 SRCS	= main.c 
 
 OBJS	= ${SRCS:.c=.o}
@@ -8,40 +12,51 @@ RM	= rm -f
 
 CC	= gcc
 
-FLAGS	= -Wall -Wextra -Werror -Imlx
+FLAGS	= -Wall -Wextra -Werror
 
-LIBFT		= ./libft/libft.a
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+	LIBX_DIR = ./minilibx_x11
+	LDLIBS = -lXext -lX11
+else
+	LIBX_DIR = ./minilibx_macos
+	LDLIBS = -framework OpenGL -framework AppKit
+endif
 
 all:		${NAME}
 
 .c.o:
-			@${CC} ${FLAGS} -c $< -o ${<:.c=.o}
+		@${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS} ${LIBFT}
-			@echo "$(shell tput bold)$(shell tput setaf 5)Compiling...$(shell tput sgr0)"
-			@${CC} ${OBJS} -Lmlx -lmlx -framework openGL -framework AppKit -o ${NAME} ${LIBFT}
-			@echo "$(shell tput bold)$(shell tput setaf 5)DONE$(shell tput sgr0)"
+			@echo "\033[34m----Compiling----"
+			@${CC} ${OBJS} -L ${LIBX_DIR} -lmlx ${LDLIBS} -o ${NAME} ${LIBFT}
+			@echo "OK"
 
 ${LIBFT}:
-			@echo "$(shell tput bold)$(shell tput setaf 5)Building libft...$(shell tput sgr0)"
+			@echo "\033[35m----Building libft----"
 			@make -sC libft
-			@echo "$(shell tput bold)$(shell tput setaf 5)DONE$(shell tput sgr0)"
+			@echo "OK"
 
 clean:
+			@echo "\033[31m----Cleaning libft----"
+			@make clean -sC ${LIB_DIR}
+			@echo "OK"
+			@echo "\033[31m----Cleaning objects----"
 			@${RM} ${OBJS}
-			@echo "$(shell tput bold)$(shell tput setaf 5)Deleting object files...$(shell tput sgr0)"
-			@echo "$(shell tput bold)$(shell tput setaf 5)DONE$(shell tput sgr0)"
+			@echo "OK"
 
 fclean:		clean
+			@echo "\033[33m----Cleaning all----"
 			@${RM} ${NAME}
-			@echo "$(shell tput bold)$(shell tput setaf 5)Deleting binaries...$(shell tput sgr0)"
-			@make fclean -sC ./libft
-			@echo "$(shell tput bold)$(shell tput setaf 5)Cleaning libft...$(shell tput sgr0)"
-			@echo "$(shell tput bold)$(shell tput setaf 5)DONE$(shell tput sgr0)"
+			@${RM} ${LIBFT}
+			@echo "OK"
 
 memory:		${OBJS}
 			${CC} ${OBJS} -fsanitize=address -g3 -lmlx -framework openGL -framework AppKit -o ${NAME}
 
-re:			@fclean all
+re:			fclean all
 
 .PHONY:		all clean fclean re
+
+
