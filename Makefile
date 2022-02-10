@@ -4,7 +4,7 @@ LIB_DIR = ./libft
 
 LIBFT	= ./libft/libft.a
 
-SRCS	= main.c 
+SRCS	= main.c map.c
 
 OBJS	= ${SRCS:.c=.o}
 

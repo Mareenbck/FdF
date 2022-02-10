@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_count_words.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marinebascunana <marvin@42.fr>             +#+  +:+       +#+        */
+/*   By: mbascuna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/25 16:41:58 by marinebas         #+#    #+#             */
-/*   Updated: 2021/11/30 09:51:01 by mbascuna         ###   ########.fr       */
+/*   Created: 2022/02/10 13:30:55 by mbascuna          #+#    #+#             */
+/*   Updated: 2022/02/10 13:30:56 by mbascuna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_count_words(char const *s, char c)
 {
-	size_t	i;
+	int	i;
+	int	words;
 
 	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
+	words = 0;
+	while (s[i] != '\n')
+	{
+		if (((s[i] != c) && s[i + 1] == c) || (s[i] != c && s[i + 1] == '\n'))
+			words++;
 		i++;
-	return (i);
+	}
+	return (words);
 }

@@ -13,9 +13,33 @@
 #ifndef FDF_H
 # define FDF_H
 
-# include "./minilibx/mlx.h"
 # include "./libft/libft.h"
+# include "./minilibx_x11/mlx.h"
+# include "./minilibx_macos/mlx.h"
+# include <stdio.h>
+# include <unistd.h>       
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
+# include <math.h>
 
-int main();
+typedef struct  t_data
+{
+	int	**tab;
+	int	col;
+	int	line;
+}   t_data;
+
+
+int main(int ac, char **av);
+
+/*****MAP.C*****/
+int   **ft_read_map(char *file);
+int	count_words(char const *s, char c);
+int   **ft_init_map(int fd);
+void   ft_fill_map(t_data **matrix, int y, char *line);
+
+
+
 
 #endif

@@ -17,11 +17,18 @@
 # include <stdio.h>
 # include <unistd.h>
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1000
+# endif
+
+
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+
 
 long long	ft_atoll(const char *str);
 int			ft_toupper(int c);
@@ -68,5 +75,7 @@ void		ft_lstdelone(t_list *lst, void (*del)(void *));
 void		ft_lstclear(t_list **lst, void (*del)(void *));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+char		*ft_get_next_line(int fd);
+int			ft_count_words(char const *s, char c);
 
 #endif
