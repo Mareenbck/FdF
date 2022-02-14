@@ -20,7 +20,7 @@ ifeq ($(UNAME_S),Linux)
 	LDLIBS = -lXext -lX11
 else
 	LIBX_DIR = ./minilibx_macos
-	LDLIBS = -framework OpenGL -framework AppKit
+	LDLIBS = -framework OpenGL -framework AppKit 
 endif
 
 all:		${NAME}

@@ -67,7 +67,7 @@ int **ft_read_map(char *file)
     char **split_line;
     int fd;
     char *get_line;
-
+    //OPEN A SECURISER
     fd = open(file, O_RDONLY, 0);
     ft_init_map(fd, &data);
     close(fd);
