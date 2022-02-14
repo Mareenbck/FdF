@@ -40,25 +40,25 @@ void ft_line(t_mlx *mlx)
 	int	y1 = 0;
 	int	y2 = 500;
 
-	float	dx;
-	float	dy;
+	int	dx;
+	int	dy;
 	// float m;
 	int	x = x1;
 	int	y = y1;
-	float e = 0.0;
 
 	dx = abs(x2 - x1);
 	dy = abs(y2 - y1);
-	e = dy / dx;
+	float e = -0.5 * dx;
+	// e = dy / dx;
   printf("%f\n", e);
 	while (x <= x2)
 	{
 		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, x, y, 0xFF5733);
-		// e -= m;
-		if (e++ >= 0.5)
+		e += dy * 2;
+		if (e >= 0)
 		{
 			y++;
-			e -= 1.0;
+			e -= dx * 2;
 		}
 		// y = m * x + y1 + 0.5;
 		x++;
