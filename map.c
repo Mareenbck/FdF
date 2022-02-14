@@ -30,92 +30,65 @@ void	**ft_free_tab(int **tab)
 	return (NULL);
 }
 
-int   **ft_init_map(int fd)
+int   **ft_init_map(int fd, t_data *data)
 {
-    t_data tab;
-    int x;
-
     char *get_line;
-    int **map;
 
-    tab.col = 0;
     get_line = ft_get_next_line(fd);
-    x = ft_count_words(get_line, ' ');
-    tab.col = x;
-    tab.line = 0;
+    data->col = ft_count_words(get_line, ' ');
+    data->line = 0;
     while (get_line)
     {
         free(get_line);
-        tab.line++;
+        data->line++;
         get_line = ft_get_next_line(fd);
     }
-    free(get_line);
-    map = (int **)malloc(sizeof(int *) * tab.line + 1);
-    if (!map)
+    // free(get_line);
+    data->tab = (int **)malloc(sizeof(t_data) * data->line);
+    if (!data->tab)
         return (NULL);
-    map[tab.line] = NULL;
-    tab.line--;
-    while (tab.line >= 0)
+    data->tab[data->line] = NULL;
+    while (data->line > 0)
     { 
-        map[tab.line] = (int *)malloc(sizeof(int) * (tab.col));
-        if (!map[tab.line])
+        data->line--;
+        data->tab[data->line] = (int *)malloc(sizeof(int) * (data->col));
+        if (!data->tab[data->line])
         {
-            ft_free_tab(map);
+            ft_free_tab(data->tab);
             return (NULL); 
         }
-        tab.line--;
     }
-    return (map);
+    return (data->tab);
 }
-
 
 int **ft_read_map(char *file)
 {
-    int **map;
+    t_data data;
     char **split_line;
-    // t_data map;
     int fd;
-    // int y;
     char *get_line;
 
     fd = open(file, O_RDONLY, 0);
-    map = ft_init_map(fd);
+    ft_init_map(fd, &data);
     close(fd);
-
-    int line;
-    line = 0;
-    int col;
-    col = 0;
     fd = open(file, O_RDONLY, 0);
     get_line = ft_get_next_line(fd);
     while (get_line)
     {
         split_line = ft_split(get_line, ' ');
-        // printf("split_line[%d][%d] = %s\n", line, col, split_line[line]);
-        col = 0;
-        while (split_line[col] != NULL)
+        data.col = 0;
+        while (split_line[data.col] != NULL)
         {
-            map[line][col] = ft_atoi(split_line[col]);
-            // printf("sortie map[%d][%d] = %d\n", line, col, map[line][col]);
-
-            // printf("split_line = %s\n", split_line[3]);
-            // printf("map[%d][%d] = %d\n", line, col, map[line][col]);
-            // printf("split_line[%d][%d] = %s\n", line, col, split_line[line]);
-            free(split_line[col]);
-            col++;
-            // printf("map[%d][%d] = %d\n", line, col, map[line][col]);
-            // printf("split_line[%d][%d] = %s\n", line, col, split_line[line]);
-
+            data.tab[data.line][data.col] = ft_atoi(split_line[data.col]);
+            free(split_line[data.col]);
+            data.col++;
         }
-        // printf("sortie map[%d][%d] = %d\n", line, col, map[line][col]);
         free(get_line);
-        line++;
+        data.line++;
         get_line = ft_get_next_line(fd);
         free(split_line);
     }
     free(get_line);
     close(fd);
-    // map[line] = NULL;
-    // ft_free_tab(map);
-    return (map);
+    return (data.tab);
 }
