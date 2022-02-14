@@ -38,30 +38,30 @@ void ft_line(t_mlx *mlx)
 	int	x1 = 0;
 	int x2 = 250;
 	int	y1 = 0;
-	int	y2 = 5;
+	int	y2 = 500;
 
-	float	step_x;
-	float	step_y;
-	float m;
+	float	dx;
+	float	dy;
+	// float m;
 	int	x = x1;
-	float	y = y1;
-	float e = 0;
+	int	y = y1;
+	float e = 0.0;
 
-	step_x = abs(x2 - x1);
-	step_y = abs(y2 - y1);
-	m = step_y / step_x;
-	 
+	dx = abs(x2 - x1);
+	dy = abs(y2 - y1);
+	e = dy / dx;
+  printf("%f\n", e);
 	while (x <= x2)
 	{
-		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, x, y, 0xFF5733); 
-		e -= m; 
-		if (e < -0.5)
+		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, x, y, 0xFF5733);
+		// e -= m;
+		if (e++ >= 0.5)
 		{
-			y--;
-			e += 1.0;
+			y++;
+			e -= 1.0;
 		}
 		// y = m * x + y1 + 0.5;
-		// x++;
+		x++;
 	}
 }
 // int	ft_expose_hook(t_mlx *var)
@@ -113,7 +113,7 @@ int main(int ac, char **av)
 	(void)ac;
 	// (void)av;
 	t_mlx mlx;
-	
+
 
 	// mlx->mlx_ptr = mlx_init();
 	// // //remplacer 500 par le nb de ligne de get next line ?
@@ -121,7 +121,7 @@ int main(int ac, char **av)
 	// // //evenement clavier
 	// mlx_key_hook(mlx->win_ptr, deal_key, mlx);
 	// mlx_loop(mlx->mlx_ptr);
-	
+
 	// int **matrix;
 	// int y = 0;
 	// int x = 0;
