@@ -47,7 +47,8 @@ int   **ft_init_map(int fd, t_data *data)
     data->tab = (int **)malloc(sizeof(t_data) * data->line);
     if (!data->tab)
         return (NULL);
-    data->tab[data->line] = NULL;
+    data->tab[data->line] = 0;
+    printf("DATA [%d] %ls \n",data->line, data->tab[data->line]);
     while (data->line > 0)
     { 
         data->line--;
@@ -61,34 +62,34 @@ int   **ft_init_map(int fd, t_data *data)
     return (data->tab);
 }
 
-int **ft_read_map(char *file)
+t_data *ft_read_map(char *file, t_data *data)
 {
-    t_data data;
+    // t_data data;
     char **split_line;
     int fd;
     char *get_line;
     //OPEN A SECURISER
     fd = open(file, O_RDONLY, 0);
-    ft_init_map(fd, &data);
+    ft_init_map(fd, data);
     close(fd);
     fd = open(file, O_RDONLY, 0);
     get_line = ft_get_next_line(fd);
     while (get_line)
     {
         split_line = ft_split(get_line, ' ');
-        data.col = 0;
-        while (split_line[data.col] != NULL)
+        data->col = 0;
+        while (split_line[data->col] != NULL)
         {
-            data.tab[data.line][data.col] = ft_atoi(split_line[data.col]);
-            free(split_line[data.col]);
-            data.col++;
+            data->tab[data->line][data->col] = ft_atoi(split_line[data->col]);
+            free(split_line[data->col]);
+            data->col++;
         }
         free(get_line);
-        data.line++;
+        data->line++;
         get_line = ft_get_next_line(fd);
         free(split_line);
     }
     free(get_line);
     close(fd);
-    return (data.tab);
+    return (data);
 }

@@ -21,7 +21,6 @@ int deal_key(int key, t_mlx *mlx)
 		mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
 		return (0);
 	}
-	// exit(0);
 	return (0);
 }
 
@@ -33,61 +32,92 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-void ft_line(t_mlx *mlx)
+void ft_line(int x1, int y1, t_mlx *mlx)
 {
-	int	x1 = 0;
-	int x2 = 250;
-	int	y1 = 0;
-	int	y2 = 500;
-
-	int	dx;
-	int	dy;
-	// float m;
-	int	x = x1;
-	int	y = y1;
+	// x1 = 0;
+	// x2 = 10;
+	// y1 = 2;
+	// y2 = 2;
+	// (void)data;
+	printf("x1 = %d", x1);
+	// printf("x2 = %d", x2);
+	printf("y1 = %d", y1);
+	// printf("y2 = %d", y2);
+	int y2 = y1;
+	int x2 = x1 + 20;
+	int	dx = x2 - x1;
+	int	dy = y2 - y1;
 
 	dx = abs(x2 - x1);
 	dy = abs(y2 - y1);
-	float e = -0.5 * dx;
+	int e = x2 - x1;
 	// e = dy / dx;
-  printf("%f\n", e);
-	while (x <= x2)
+  	// printf("e = %d\n", e);
+  	// printf("dx = %d\n", dx);
+  	// printf("dy = %d\n", dy);
+  	if (dx >= dy)
 	{
-		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, x, y, 0xFF5733);
-		e += dy * 2;
-		if (e >= 0)
+   		dy *= 2;
+		dx *= 2;
+		x2 = x1 + 20;
+		while (x1 <= x2)
 		{
-			y++;
-			e -= dx * 2;
+			mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, x1, y1, 0xFF5733);
+			e -= dy;
+			if (e < 0)
+			{
+				y1 += 20;
+				e += dx;
+			}
+			x1 += 20;
 		}
-		// y = m * x + y1 + 0.5;
-		x++;
+  	}	
+	// while (x <= x2)
+	// {
+	// 	mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, x, y, 0xFF5733);
+	// 	e += dy * 2;
+	// 	if (e >= 0)
+	// 	{
+	// 		y++;
+	// 		e -= dx * 2;
+	// 	}
+	// 	x++;
+	// }
+}
+
+void	ft_draw(t_data *data, t_mlx *mlx)
+{
+	// int		y;
+	int		x;
+
+	int y = 0;
+	// x = 0;
+	(void)mlx;
+	printf("mlx -> map : %d\n", data->tab[2][2]);
+	printf("data->line : %d\n", data->line);
+	printf("data->col : %d\n", data->col);
+	while (--data->line)
+	{
+		printf("data->line : %d\n", data->line);
+		printf("%d \n", data->tab[2][2]);
+	}
+
+	while (data->tab[y])
+	{
+		printf("y = %d\n", y);
+		x = 0;
+		while (data->tab[x])
+		{
+			printf("x = %d\n", x);
+			if (data->tab[x + 1])
+				ft_line(x, y, mlx);
+			x++;
+		}
+		y++;
 	}
 }
-// int	ft_expose_hook(t_mlx *var)
-// {
-// 	var->img.img = mlx_new_image(var->mlx, var->win_len, var->win_width);
-// 	var->img.addr = mlx_get_data_addr(var->img.img, &var->img.bpp,
-// 			&var->img.size_l, &var->img.endian);
-// 	ft_draw_col(var);
-// 	ft_draw_li(var);
-// 	mlx_put_image_to_window(var->mlx, var->win, var->img.img, 0, 0);
-// 	mlx_destroy_image(var->mlx, var->img.img);
-// 	return (0);
 
-
-// float slope = (float)(y1 - y0) / (float)(x1 - x0);
-
-// 		for (int x = x0; x <= x1; ++x)
-// 		{
-// 			float y = slope * (x - x0) + y0;
-// 			gfx.setPixel(x, y, Color(255, 255, 255));
-// 		}
-// 		gfx.render();
-// }
-
-
-void	ft_aff_window(t_mlx *mlx)
+void	ft_aff_window(t_mlx *mlx, t_data *data)
 {
 	t_img	img;
 
@@ -98,8 +128,8 @@ void	ft_aff_window(t_mlx *mlx)
 	// mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, 250, 250, 0xFF5733);
 	my_mlx_pixel_put(&img, 250, 250, 0x000000FF);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, img.img_ptr, 0, 0);
-	ft_line(mlx);
-	// mlx_hook(mlx->win_ptr, deal_key, mlx);
+	ft_draw(data, mlx);
+	// ft_line(data, mlx);
 	mlx_hook(mlx->win_ptr, 2, 1L<<0, deal_key, mlx);
 	mlx_destroy_image(mlx->mlx_ptr, img.img_ptr);
 
@@ -111,30 +141,13 @@ void	ft_aff_window(t_mlx *mlx)
 int main(int ac, char **av)
 {
 	(void)ac;
-	// (void)av;
 	t_mlx mlx;
+	t_data data;
 
-
-	// mlx->mlx_ptr = mlx_init();
-	// // //remplacer 500 par le nb de ligne de get next line ?
-	// mlx->mlx_ptr = mlx_new_window(mlx->mlx_ptr, 500, 500, "test");
-	// // //evenement clavier
-	// mlx_key_hook(mlx->win_ptr, deal_key, mlx);
-	// mlx_loop(mlx->mlx_ptr);
-
-	// int **matrix;
-	// int y = 0;
-	// int x = 0;
-
-	// printf("ok\n");
-
-
-	int **map;
-	map = ft_read_map(av[1]);
-	if (map)
-		ft_free_tab(map);
-	ft_aff_window(&mlx);
+	ft_read_map(av[1], &data);
+	// if (!map)
+	// 	ft_free_tab(map);
+	printf("data : %d \n", data.tab[2][2]);
+	ft_aff_window(&mlx, &data);
 	return (0);
-	// printf("%d \n",matrix[y][x].z);
-
 }

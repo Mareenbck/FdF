@@ -35,6 +35,7 @@ typedef struct  s_mlx
 {
 	void *mlx_ptr;
 	void *win_ptr;
+	t_data **map;
 
 }   t_mlx;
 
@@ -50,7 +51,7 @@ typedef struct	s_img {
 int main(int ac, char **av);
 
 /*****MAP.C*****/
-int   **ft_read_map(char *file);
+t_data   *ft_read_map(char *file, t_data *data);
 int	count_words(char const *s, char c);
 int   **ft_init_map(int fd, t_data *data);
 void   ft_fill_map(t_data **matrix, int y, char *line);
