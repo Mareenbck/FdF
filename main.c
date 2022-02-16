@@ -34,44 +34,36 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 
 void ft_line(int x1, int y1, t_mlx *mlx)
 {
-	// x1 = 0;
-	// x2 = 10;
-	// y1 = 2;
-	// y2 = 2;
-	// (void)data;
-	printf("x1 = %d", x1);
-	// printf("x2 = %d", x2);
-	printf("y1 = %d", y1);
-	// printf("y2 = %d", y2);
-	int y2 = y1;
-	int x2 = x1 + 20;
+  int space = 20;
+  //space pour tracer trait
+  int y2 = y1;
+  int x2 = x1;
 	int	dx = x2 - x1;
 	int	dy = y2 - y1;
 
 	dx = abs(x2 - x1);
 	dy = abs(y2 - y1);
-	int e = x2 - x1;
+	// int e = x2 - x1;
 	// e = dy / dx;
-  	// printf("e = %d\n", e);
-  	// printf("dx = %d\n", dx);
-  	// printf("dy = %d\n", dy);
-  	if (dx >= dy)
+  if (dx >= dy)
+  // == 0 car horizontal
 	{
-   		dy *= 2;
-		dx *= 2;
-		x2 = x1 + 20;
-		while (x1 <= x2)
+    x2 = x1 + space;
+    printf("x1 = %d\n", x1);
+    printf("x2 = %d\n", x2);
+    while (x1 <= x2)
 		{
-			mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, x1, y1, 0xFF5733);
-			e -= dy;
-			if (e < 0)
-			{
-				y1 += 20;
-				e += dx;
-			}
-			x1 += 20;
+      mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, x1, y1, 0xFF3395);
+      //PAS UTILE POUR LIGNE HORIZONTALESssss
+      // e -= dy;
+			// if (e < 0)
+			// {
+			// 	y1++;
+			// 	e += dx;
+			// }
+			x1++;
 		}
-  	}	
+  }
 	// while (x <= x2)
 	// {
 	// 	mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, x, y, 0xFF5733);
@@ -87,33 +79,23 @@ void ft_line(int x1, int y1, t_mlx *mlx)
 
 void	ft_draw(t_data *data, t_mlx *mlx)
 {
-	// int		y;
-	int		x;
-
+	int	x = 0;
 	int y = 0;
-	// x = 0;
-	(void)mlx;
-	printf("mlx -> map : %d\n", data->tab[2][2]);
-	printf("data->line : %d\n", data->line);
-	printf("data->col : %d\n", data->col);
-	while (--data->line)
-	{
-		printf("data->line : %d\n", data->line);
-		printf("%d \n", data->tab[2][2]);
-	}
 
-	while (data->tab[y])
+	(void)mlx;
+  int space = 20;
+  int nb_col = data->col;
+  int nb_line = data->line;
+  while (y < (nb_line * space))
 	{
-		printf("y = %d\n", y);
-		x = 0;
-		while (data->tab[x])
+    x = 0;
+		while (x < (nb_col * space))
 		{
-			printf("x = %d\n", x);
-			if (data->tab[x + 1])
-				ft_line(x, y, mlx);
-			x++;
-		}
-		y++;
+      // if (data->tab[x + 1])
+				ft_line((x),(y), mlx);
+			x+= space;
+    }
+		y+= space;
 	}
 }
 
