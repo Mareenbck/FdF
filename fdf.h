@@ -29,14 +29,35 @@ typedef struct  s_data
 	int **tab;
 	int	col;
 	int	line;
+	int x;
+	int y;
+	int z;
 }   t_data;
+
+typedef struct s_map
+{
+	int x;
+	int	y;
+	int x1;
+	int y1;
+	int x2;
+	int y2;
+	int z;
+	int space;
+	int step_x;
+	int step_y;
+	int dx;
+	int dy;
+	int e;
+}	t_map;
+
 
 typedef struct  s_mlx
 {
 	void *mlx_ptr;
 	void *win_ptr;
-	t_data **map;
-
+	int	win_len;
+	int	win_width;
 }   t_mlx;
 
 typedef struct	s_img {
@@ -56,7 +77,7 @@ int	count_words(char const *s, char c);
 int   **ft_init_map(int fd, t_data *data);
 void   ft_fill_map(t_data **matrix, int y, char *line);
 void	**ft_free_tab(int **tab);
-
+void	ft_window_size(t_data *data, t_mlx *mlx);
 
 
 

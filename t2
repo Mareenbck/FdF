@@ -1,0 +1,95 @@
+fonction dessiner une ligne
+
+map.y = 0 , y = 0
+tant que (y < nb_ligne * space)
+{
+    x = 0 , map.x = 0
+    li_pt_begin
+        >> x1 = x - y
+           y1 = x + y - space * z
+    fonction 1 ligne
+    map.y ++
+    y += space
+}
+
+
+
+fonction d'une ligne a repeter
+
+tant que (x < nb_col * space)
+{
+    li_pt_next 
+        >>  x2 = x + space - y
+            y2 = y + space - space * z + x  
+    bresenham
+        >>  dx = x2 - x1 // dy = y2 - y1
+            si x2 > x1 , stepx = 1 sinon = -1
+            si y2 > y1 , stepy = 1 sinon = -1
+            si dx > dy , e = dx / 2 sinon e = -dy / 2
+
+            pixel_put(x1, y1, color)
+            si dx > -e
+                e -= dy , x1 += stepx
+            si dy > e
+                e += dx , y1 += stepy
+    map.x++;
+    x += space
+    x1 = x2 , y1 = y2
+}
+
+
+plotLineLow(x0, y0, x1, y1)
+    dx = x1 - x0
+    dy = y1 - y0
+    yi = 1
+    if dy < 0
+        yi = -1
+        dy = -dy
+    end if
+    D = (2 * dy) - dx
+    y = y0
+
+    for x from x0 to x1
+        plot(x, y)
+        if D > 0
+            y = y + yi
+            D = D + (2 * (dy - dx))
+        else
+            D = D + 2*dy
+        end if
+
+
+plotLineHigh(x0, y0, x1, y1)
+    dx = x1 - x0
+    dy = y1 - y0
+    xi = 1
+    if dx < 0
+        xi = -1
+        dx = -dx
+    end if
+    D = (2 * dx) - dy
+    x = x0
+
+    for y from y0 to y1
+        plot(x, y)
+        if D > 0
+            x = x + xi
+            D = D + (2 * (dx - dy))
+        else
+            D = D + 2*dx
+        end if
+
+plotLine(x0, y0, x1, y1)
+    if abs(y1 - y0) < abs(x1 - x0)
+        if x0 > x1
+            plotLineLow(x1, y1, x0, y0)
+        else
+            plotLineLow(x0, y0, x1, y1)
+        end if
+    else
+        if y0 > y1
+            plotLineHigh(x1, y1, x0, y0)
+        else
+            plotLineHigh(x0, y0, x1, y1)
+        end if
+    end if

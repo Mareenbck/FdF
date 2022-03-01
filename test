@@ -1,0 +1,112 @@
+void	ft_draw_one_col(t_mlx *var)
+{
+	while (var->point.y < ((var->map.li - 1) * var->point.space))
+	{
+		col_pt_next(var);
+		ft_bresenham(var);
+		var->map.y++;
+		var->point.y += var->point.space;
+		var->point.x1 = var->point.x2;
+		var->point.y1 = var->point.y2;
+	}
+}
+
+void	ft_draw_col(t_mlx *var)
+{
+	var->map.x = 0;
+	var->point.x = 0;
+	while (var->point.x < (var->map.col * var->point.space))
+	{
+		var->point.y = 0;
+		var->map.y = 0;
+		col_pt_begin(var);
+		ft_draw_one_col(var);
+		var->map.x++;
+		var->point.x += var->point.space;
+	}
+}
+
+void	ft_draw_one_li(t_mlx *var)
+{
+	while (var->point.x < ((var->map.col - 1) * var->point.space))
+	{
+		li_pt_next(var);
+		ft_bresenham(var);
+		var->map.x++;
+		var->point.x += var->point.space;
+		var->point.x1 = var->point.x2;
+		var->point.y1 = var->point.y2;
+	}
+}
+
+void	ft_draw_li(t_mlx *var)
+{
+	var->map.y = 0;
+	var->point.y = 0;
+	while (var->point.y < (var->map.li * var->point.space))
+	{
+		var->point.x = 0;
+		var->map.x = 0;
+		li_pt_begin(var);
+		ft_draw_one_li(var);
+		var->map.y++;
+		var->point.y += var->point.space;
+	}	
+}
+
+void	li_pt_begin(t_mlx *var)
+{
+	var->point.x1 = var->point.x - var->point.y;
+	var->point.y1 = var->point.x + var->point.y - var->point.alt
+		* var->map.map[var->map.y][var->map.x];
+}
+
+void	li_pt_next(t_mlx *var)
+{
+	var->point.x2 = var->point.x + var->point.space - var->point.y;
+	var->point.y2 = var->point.y + var->point.space - var->point.alt
+		* var->map.map[var->map.y][var->map.x + 1] + var->point.x;
+}
+
+
+
+void	ft_bresenham(t_mlx *var)
+{
+	var->point.dx = (abs(var->point.x2 - var->point.x1));
+	var->point.dy = (abs(var->point.y2 - var->point.y1));
+	ft_point_bresenham(var);
+	while (1)
+	{
+		ft_colors(var);
+		my_pixel_put(var, var->point.x1 + var->point.left_right,
+			var->point.y1 + var->point.up_down);
+		if (var->point.x1 == var->point.x2 && var->point.y1 == var->point.y2)
+			break ;
+		if (var->point.dx > -var->point.e)
+		{
+			var->point.e -= var->point.dy;
+			var->point.x1 += var->point.stepx;
+		}
+		if (var->point.dy > var->point.e)
+		{
+			var->point.e += var->point.dx;
+			var->point.y1 += var->point.stepy;
+		}
+	}
+}
+
+void	ft_point_bresenham(t_mlx *var)
+{
+	if (var->point.x2 > var->point.x1)
+		var->point.stepx = 1;
+	else
+		var->point.stepx = -1;
+	if (var->point.y2 > var->point.y1)
+		var->point.stepy = 1;
+	else
+		var->point.stepy = -1;
+	if (var->point.dx > var->point.dy)
+		var->point.e = var->point.dx / 2;
+	else
+		var->point.e = -var->point.dy / 2;
+}
