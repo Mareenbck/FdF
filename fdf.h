@@ -86,7 +86,8 @@ void	my_mlx_pixel_put(t_mlx *mlx, t_img *img, int x, int y, int color);
 /*****DRAW.C*****/
 void	li_pt_begin(t_map *map);
 void	li_pt_next(t_map *map);
-void	ft_draw_one_li(t_mlx *mlx, t_map *map, t_data *data, t_img *img);
+void	ft_line(t_mlx *mlx, t_map *map, t_data *data, t_img *img);
+void	ft_col(t_mlx *mlx, t_map *map, t_data *data, t_img *img);
 void	ft_draw(t_data *data, t_mlx *mlx, t_img *img);
 
 /*****SETUP.C*****/

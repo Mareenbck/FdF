@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-void	ft_draw_one_li(t_mlx *mlx, t_map *map, t_data *data, t_img *img)
+void	ft_line(t_mlx *mlx, t_map *map, t_data *data, t_img *img)
 {
 	while (map->x < ((data->col) * map->space))
 	{
@@ -26,7 +26,7 @@ void	ft_draw_one_li(t_mlx *mlx, t_map *map, t_data *data, t_img *img)
 	}
 }
 
-void	ft_draw_one_col(t_mlx *mlx, t_map *map, t_data *data, t_img *img)
+void	ft_col(t_mlx *mlx, t_map *map, t_data *data, t_img *img)
 {
 	while (map->y < ((data->line) * map->space))
 	{
@@ -34,7 +34,6 @@ void	ft_draw_one_col(t_mlx *mlx, t_map *map, t_data *data, t_img *img)
 		map->x2 = map->x;
 	    map->y2 = map->y + map->space;
 		ft_bresenham(mlx, map, img);
-		// map->y++;
 		map->y += map->space;
 		map->x1 = map->x2;
 		map->y1 = map->y2;
@@ -56,7 +55,7 @@ void	ft_draw(t_data *data, t_mlx *mlx, t_img *img)
         // Init des points 1
 		map.x1 = map.x - map.y;
 	    map.y1 = map.y;
-		ft_draw_one_li(mlx, &map, data, img);
+		ft_line(mlx, &map, data, img);
 		data->y++;
 		map.y += map.space;
 	}
@@ -69,7 +68,7 @@ void	ft_draw(t_data *data, t_mlx *mlx, t_img *img)
         // Init des points 1
         map.x1 = map.x - map.y;
 	    map.y1 = map.y;
-		ft_draw_one_col(mlx, &map, data, img);
+		ft_col(mlx, &map, data, img);
 		data->x++;
 		map.x += map.space;
     }
