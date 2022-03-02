@@ -47,9 +47,11 @@ void	ft_draw(t_data *data, t_mlx *mlx, t_img *img)
   	map.space = 50;
     // <<
 
-	map.z = data->tab[data->y][data->x];
+	data->z = data->tab[data->y][data->x];
   	while (map.y <= (data->line * map.space))
   	{
+	    // data->z = data->tab[data->y][data->x];  
+        // printf("data->z = %d\n", data->z);
 		map.x = 0;
 		data->x  = 0;
         // Init des points 1
@@ -63,6 +65,8 @@ void	ft_draw(t_data *data, t_mlx *mlx, t_img *img)
 	data->x  = 0;
     while (map.x <= (data->col * map.space))
     {
+	    // data->z = data->tab[data->y][data->x];  
+        // printf("data->z = %d\n", data->z); 
         map.y = 0;
 		data->y  = 0;
         // Init des points 1

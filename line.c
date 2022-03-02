@@ -15,13 +15,13 @@
 void ft_bresenham(t_mlx *mlx, t_map *map, t_img *img)
 {
 	printf(">>FT_LINE<<\n");
-	printf("map->x : %d, map->x1 : %d, map->x2 : %d\n", map->x, map->x1, map->x2);
-	printf("map->y : %d, map->y1 : %d, map->y2 : %d\n", map->y, map->y1, map->y2);
-	printf("map->z = %d\n", map->z);
+	// printf("map->x : %d, map->x1 : %d, map->x2 : %d\n", map->x, map->x1, map->x2);
+	// printf("map->y : %d, map->y1 : %d, map->y2 : %d\n", map->y, map->y1, map->y2);
+	// printf("map->z = %d\n", map->z);
 
 	map->dx = abs(map->x2 - map->x1);
 	map->dy = -abs(map->y2 - map->y1);
-	printf("dy : %d, dx : %d\n", map->dy, map->dx);
+	// printf("dy : %d, dx : %d\n", map->dy, map->dx);
 
 	// >>> DETERMINER STEP <<<
 	if (map->x2 > map->x1)
