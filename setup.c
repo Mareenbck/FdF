@@ -16,7 +16,7 @@
 void	ft_window_size(t_data *data, t_mlx *mlx)
 {
 	if (data->col <= 10)
-		mlx->win_len = data->col * 80;
+		mlx->win_len = data->col * 100;
 	else if (data->col <= 20)
 		mlx->win_len = data->col * 50;
 	else if (data->col <= 50)
