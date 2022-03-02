@@ -59,6 +59,8 @@ typedef struct  s_mlx
 	void *win_ptr;
 	int	win_len;
 	int	win_width;
+	int pad_left_right;
+	int pad_top_bot;
 }   t_mlx;
 
 typedef struct	s_img {
@@ -92,6 +94,7 @@ void	ft_draw(t_data *data, t_mlx *mlx, t_img *img);
 
 /*****SETUP.C*****/
 void	ft_window_size(t_data *data, t_mlx *mlx);
+void	ft_padding(t_mlx *mlx);
 
 /*****EVENT.C*****/
 int deal_key(int key, t_mlx *mlx);

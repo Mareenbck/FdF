@@ -19,8 +19,8 @@ void ft_bresenham(t_mlx *mlx, t_map *map, t_img *img)
 	printf("map->y : %d, map->y1 : %d, map->y2 : %d\n", map->y, map->y1, map->y2);
 	printf("map->z = %d\n", map->z);
 
-	map->dx = (abs(map->x2 - map->x1));
-	map->dy = -(abs(map->y2 - map->y1));
+	map->dx = abs(map->x2 - map->x1);
+	map->dy = -abs(map->y2 - map->y1);
 	printf("dy : %d, dx : %d\n", map->dy, map->dx);
 
 	// >>> DETERMINER STEP <<<
@@ -35,7 +35,7 @@ void ft_bresenham(t_mlx *mlx, t_map *map, t_img *img)
 	map->e = map->dy + map->dx;
 	while (1)
 	{
-		my_mlx_pixel_put(mlx, img, map->x1, map->y1, 0xFF3395);
+		my_mlx_pixel_put(mlx, img, map->x1 + mlx->pad_left_right, map->y1 + mlx->pad_top_bot, 0xFF3395);
 		if ((map->x1 == map->x2 && map->y1 == map->y2))
 			break ;
 		map->e2 = map->e * 2;

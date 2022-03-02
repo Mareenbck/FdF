@@ -15,8 +15,7 @@
 void	my_mlx_pixel_put(t_mlx *mlx, t_img *img, int x, int y, int color)
 {
 	char	*dst;
-
-	if (x >= 0 && x <= mlx->win_len && y >= 0 && y <= mlx->win_width)
+	if (x >= mlx->pad_left_right && y <= mlx->win_width)
 		dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
 	*(unsigned int*)dst = color;
 }
@@ -54,6 +53,7 @@ int main(int ac, char **av)
 	// 	ft_free_tab(map);
 	printf("data : %d \n", data.tab[2][2]);
 	ft_window_size(&data, &mlx);
+	ft_padding(&mlx);
 	ft_aff_window(&mlx, &data);
 	return (0);
 }

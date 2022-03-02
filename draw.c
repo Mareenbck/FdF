@@ -44,7 +44,7 @@ void	ft_draw(t_data *data, t_mlx *mlx, t_img *img)
 {
 	t_map	map;
     // >> FONCTION POUR DETERMINER SPACE
-  	map.space = 40;
+  	map.space = 50;
     // <<
 
 	map.z = data->tab[data->y][data->x];
