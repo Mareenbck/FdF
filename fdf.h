@@ -79,7 +79,7 @@ int   **ft_init_map(int fd, t_data *data);
 void   ft_fill_map(t_data **matrix, int y, char *line);
 void	**ft_free_tab(int **tab);
 
-void ft_line(t_mlx *mlx, t_map *map, t_img *img);
+void ft_bresenham(t_mlx *mlx, t_map *map, t_img *img);
 void	my_mlx_pixel_put(t_mlx *mlx, t_img *img, int x, int y, int color);
 
 

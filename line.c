@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-void ft_line(t_mlx *mlx, t_map *map, t_img *img)
+void ft_bresenham(t_mlx *mlx, t_map *map, t_img *img)
 {
 	printf(">>FT_LINE<<\n");
 	printf("map->x : %d, map->x1 : %d, map->x2 : %d\n", map->x, map->x1, map->x2);
@@ -33,14 +33,8 @@ void ft_line(t_mlx *mlx, t_map *map, t_img *img)
 	else
 		map->step_y = -1;
 	map->e = map->dy + map->dx;
-	printf("step_x : %d, step_y : %d, e : %d\n", map->step_x, map->step_y, map->e);
-
 	while (1)
 	{
-		// printf(">>PIXEL_PUT<<\n");
-		// printf("map->x : %d, map->x1 : %d, map->x2 : %d\n", map->x, map->x1, map->x2);
-		// printf("map->y : %d, map->y1 : %d, map->y2 : %d\n", map->y, map->y1, map->y2);
-		// printf("map->z = %d\n", map->z);
 		my_mlx_pixel_put(mlx, img, map->x1, map->y1, 0xFF3395);
 		if ((map->x1 == map->x2 && map->y1 == map->y2))
 			break ;
