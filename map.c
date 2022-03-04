@@ -48,6 +48,7 @@ int   **ft_init_map(int fd, t_data *data)
     if (!data->tab)
         return (NULL);
     data->tab[data->line] = 0;
+
     // printf("DATA [%d] %ls \n",data->line, data->tab[data->line]);
     while (data->line > 0)
     { 

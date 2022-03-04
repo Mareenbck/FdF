@@ -61,6 +61,7 @@ typedef struct  s_mlx
 	int	win_width;
 	int pad_left_right;
 	int pad_top_bot;
+	int	altitude;
 }   t_mlx;
 
 typedef struct	s_img {
@@ -70,6 +71,13 @@ typedef struct	s_img {
 	int		line_length;
 	int		endian;
 }				t_img;
+
+typedef struct	s_color 
+{
+	int red; 
+	int green;
+	int blue;
+}	t_color;
 
 
 int main(int ac, char **av);
@@ -81,8 +89,8 @@ int   **ft_init_map(int fd, t_data *data);
 void   ft_fill_map(t_data **matrix, int y, char *line);
 void	**ft_free_tab(int **tab);
 
-void ft_bresenham(t_mlx *mlx, t_map *map, t_img *img);
-void	my_mlx_pixel_put(t_mlx *mlx, t_img *img, int x, int y, int color);
+void ft_bresenham(t_mlx *mlx, t_map *map, t_img *img, t_data *data);
+void	my_mlx_pixel_put(t_mlx *mlx, t_img *img, int x, int y, t_color *color);
 
 
 /*****DRAW.C*****/
@@ -90,14 +98,17 @@ void	li_pt_begin(t_map *map);
 void	li_pt_next(t_map *map);
 void	ft_line(t_mlx *mlx, t_map *map, t_data *data, t_img *img);
 void	ft_col(t_mlx *mlx, t_map *map, t_data *data, t_img *img);
-void	ft_draw(t_data *data, t_mlx *mlx, t_img *img);
+void	ft_draw(t_data *data, t_mlx *mlx, t_img *img, t_map *map);
 
 /*****SETUP.C*****/
 void	ft_window_size(t_data *data, t_mlx *mlx);
 void	ft_padding(t_mlx *mlx);
+void	ft_space(t_map *map, t_data *data);
+void	ft_colors(t_data *data, t_color *color);
 
 /*****EVENT.C*****/
-int deal_key(int key, t_mlx *mlx);
+int deal_key(int key, t_mlx *mlx, t_data *data, t_map *map, t_img *img);
+int	ft_expose_hook(t_mlx *mlx, t_data *data);
 
 
 #endif
