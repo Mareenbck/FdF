@@ -1,530 +1,528 @@
-==139483== Memcheck, a memory error detector
-==139483== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==139483== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==139483== Command: ./fdf pentenegpos.fdf
-==139483== Parent PID: 109322
-==139483== 
-==139483== Invalid read of size 4
-==139483==    at 0x10B055: ft_colors (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10B7DA: ft_bresenham (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10B2AD: ft_col (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10B4ED: ft_draw (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A926: ft_expose_hook (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AA02: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==  Address 0x4c09204 is 0 bytes after a block of size 84 alloc'd
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x10AC74: ft_init_map (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AD0C: ft_read_map (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AA63: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 
-==139483== HEAP SUMMARY:
-==139483==     in use at exit: 81,219 bytes in 111 blocks
-==139483==   total heap usage: 2,227 allocs, 2,116 frees, 204,138 bytes allocated
-==139483== 
-==139483== 3 bytes in 1 blocks are still reachable in loss record 1 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x4A553BE: strdup (strdup.c:42)
-==139483==    by 0x48A7385: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BB47: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 8 bytes in 1 blocks are still reachable in loss record 2 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x4A553BE: strdup (strdup.c:42)
-==139483==    by 0x48A125E: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48723F0: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x486D7B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x10B983: mlx_int_deal_shm (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10BBD1: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 8 bytes in 1 blocks are still reachable in loss record 3 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x4872144: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x48721AE: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x48725A2: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x486D7B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x10B983: mlx_int_deal_shm (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10BBD1: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 10 bytes in 1 blocks are still reachable in loss record 4 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x4A553BE: strdup (strdup.c:42)
-==139483==    by 0x48A125E: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x490DC43: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48A7E19: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BB47: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 16 bytes in 1 blocks are still reachable in loss record 5 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x4BB6F81: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==139483==    by 0x4BB53FB: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==139483==    by 0x4BB38F5: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==139483==    by 0x4BB7B72: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==139483==    by 0x48B6D29: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48A73A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BB47: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 21 bytes in 1 blocks are still reachable in loss record 6 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x48A783C: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BB47: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 24 bytes in 1 blocks are still reachable in loss record 7 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x4872351: XextCreateExtension (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x4871E1C: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x487219B: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x48725A2: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x486D7B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x10B983: mlx_int_deal_shm (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10BBD1: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 24 bytes in 1 blocks are still reachable in loss record 8 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x4A553BE: strdup (strdup.c:42)
-==139483==    by 0x48A125E: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48723F0: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x4871E5A: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x487219B: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x48725A2: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x486D7B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x10B983: mlx_int_deal_shm (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10BBD1: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 24 bytes in 1 blocks are still reachable in loss record 9 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x48721CD: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x48725A2: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x486D7B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x10B983: mlx_int_deal_shm (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10BBD1: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 32 bytes in 1 blocks are still reachable in loss record 10 of 51
-==139483==    at 0x483B723: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x483E017: realloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x4BB6B9E: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==139483==    by 0x4BB6C2B: xcb_get_extension_data (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==139483==    by 0x4BB413E: xcb_prefetch_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==139483==    by 0x4BB41B4: xcb_get_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==139483==    by 0x48A7CD8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BB47: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 32 bytes in 1 blocks are still reachable in loss record 11 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x4BB60C5: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==139483==    by 0x4BB3E9E: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==139483==    by 0x4BB561E: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==139483==    by 0x4BB5734: xcb_wait_for_reply (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==139483==    by 0x4BB6C82: xcb_get_extension_data (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==139483==    by 0x4BB413E: xcb_prefetch_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==139483==    by 0x4BB41B4: xcb_get_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==139483==    by 0x48A7CD8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BB47: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 32 bytes in 1 blocks are still reachable in loss record 12 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x48723CF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x486D7B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x10B983: mlx_int_deal_shm (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10BBD1: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 32 bytes in 1 blocks are still reachable in loss record 13 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x48723CF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x4871E5A: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x487219B: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x48725A2: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x486D7B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x10B983: mlx_int_deal_shm (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10BBD1: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 40 bytes in 1 blocks are still reachable in loss record 14 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x48B8DD1: _XPollfdCacheInit (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48A766F: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BB47: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 48 bytes in 1 blocks are still reachable in loss record 15 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x48B6CB1: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48A73A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BB47: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 48 bytes in 1 blocks are still reachable in loss record 16 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x48B6CC7: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48A73A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BB47: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 48 bytes in 1 blocks are still reachable in loss record 17 of 51
-==139483==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x49086E0: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x4904968: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x4904E57: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10C7B8: mlx_int_param_KeyRelease (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10BE48: mlx_loop (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AA11: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 72 bytes in 1 blocks are still reachable in loss record 18 of 51
-==139483==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x48A7721: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BB47: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 72 bytes in 1 blocks are still reachable in loss record 19 of 51
-==139483==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x49086C4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x4904968: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x4904E57: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10C7B8: mlx_int_param_KeyRelease (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10BE48: mlx_loop (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AA11: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 104 bytes in 1 blocks are still reachable in loss record 20 of 51
-==139483==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x48B6BB2: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48A73A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BB47: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 112 bytes in 1 blocks are still reachable in loss record 21 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x10BB2F: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 112 bytes in 1 blocks are still reachable in loss record 22 of 51
-==139483==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x48A79A0: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BB47: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 128 bytes in 1 blocks are still reachable in loss record 23 of 51
-==139483==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x48A78D0: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BB47: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 128 bytes in 1 blocks are still reachable in loss record 24 of 51
-==139483==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x48A124E: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x490DC43: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48A7E19: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BB47: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 128 bytes in 1 blocks are still reachable in loss record 25 of 51
-==139483==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x48A124E: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48723F0: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x486D7B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x10B983: mlx_int_deal_shm (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10BBD1: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 128 bytes in 1 blocks are still reachable in loss record 26 of 51
-==139483==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x48A124E: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48723F0: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x4871E5A: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x487219B: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x48725A2: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x486D7B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x10B983: mlx_int_deal_shm (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10BBD1: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 149 bytes in 1 blocks are still reachable in loss record 27 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x48A7E81: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BB47: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 152 bytes in 1 blocks are still reachable in loss record 28 of 51
-==139483==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x490DE3E: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48A7E19: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BB47: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 160 bytes in 1 blocks are still reachable in loss record 29 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x489582F: XCreateGC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48A7D48: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BB47: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 160 bytes in 1 blocks are still reachable in loss record 30 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x489582F: XCreateGC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BD18: mlx_new_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9D0: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 168 bytes in 1 blocks are still reachable in loss record 31 of 51
-==139483==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x48A7C37: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BB47: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 208 bytes in 1 blocks are still reachable in loss record 32 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x48720F9: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x48721AE: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x48725A2: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x486D7B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==139483==    by 0x10B983: mlx_int_deal_shm (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10BBD1: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 208 bytes in 1 blocks are still reachable in loss record 33 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x48BA53E: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48B70B6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48B7B10: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48B6039: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BF55: mlx_int_wait_first_expose (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10BD57: mlx_new_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9D0: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 256 bytes in 1 blocks are still reachable in loss record 34 of 51
-==139483==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x49165DD: XkbAllocClientMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x490845D: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x49085BD: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x490864C: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x4908714: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x4904968: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x4904E57: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10C7B8: mlx_int_param_KeyRelease (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10BE48: mlx_loop (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AA11: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 288 bytes in 1 blocks are still reachable in loss record 35 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x10ABF5: ft_init_map (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AD0C: ft_read_map (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AA63: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 344 bytes in 6 blocks are still reachable in loss record 36 of 51
-==139483==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x4907DD5: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x49085BD: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x490864C: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x4908714: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x4904968: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x4904E57: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10C7B8: mlx_int_param_KeyRelease (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10BE48: mlx_loop (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AA11: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 624 bytes in 3 blocks are still reachable in loss record 37 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x48BA53E: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48B70B6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48B7B59: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48B6039: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BF55: mlx_int_wait_first_expose (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10BD57: mlx_new_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9D0: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 756 bytes in 9 blocks are still reachable in loss record 38 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x10AC74: ft_init_map (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AD0C: ft_read_map (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AA63: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 832 bytes in 4 blocks are still reachable in loss record 39 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x48BA53E: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48B70B6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48B801C: _XReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48B37F0: XSync (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10C1A7: mlx_int_new_xshm_image (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10C3E2: mlx_new_image (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A8E2: ft_expose_hook (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AA02: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 936 bytes in 1 blocks are still reachable in loss record 40 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x10BC90: mlx_new_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9D0: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 1,120 bytes in 1 blocks are still reachable in loss record 41 of 51
-==139483==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x49166A1: XkbAllocClientMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x490826F: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x49085BD: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x490864C: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x4908714: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x4904968: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x4904E57: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10C7B8: mlx_int_param_KeyRelease (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10BE48: mlx_loop (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AA11: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 1,248 bytes in 6 blocks are still reachable in loss record 42 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x48BA53E: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48B70B6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48B7B10: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48B6070: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BF55: mlx_int_wait_first_expose (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10BD57: mlx_new_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9D0: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 2,028 bytes in 27 blocks are still reachable in loss record 43 of 51
-==139483==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x4907BBD: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x49085BD: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x490864C: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x4908714: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x4904968: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x4904E57: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10C7B8: mlx_int_param_KeyRelease (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10BE48: mlx_loop (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AA11: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 2,048 bytes in 1 blocks are still reachable in loss record 44 of 51
-==139483==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x4907DF4: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x49085BD: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x490864C: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x4908714: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x4904968: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x4904E57: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10C7B8: mlx_int_param_KeyRelease (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10BE48: mlx_loop (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AA11: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 2,288 bytes in 11 blocks are still reachable in loss record 45 of 51
-==139483==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x48BA53E: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48B70B6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48B7B59: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48B6070: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BF55: mlx_int_wait_first_expose (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10BD57: mlx_new_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9D0: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 4,688 bytes in 1 blocks are still reachable in loss record 46 of 51
-==139483==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x48A7371: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BB47: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 5,120 bytes in 1 blocks are still reachable in loss record 47 of 51
-==139483==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x49084EC: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x49085BD: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x490864C: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x4908714: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x4904968: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x4904E57: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10C7B8: mlx_int_param_KeyRelease (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10BE48: mlx_loop (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AA11: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 5,684 bytes in 1 blocks are still reachable in loss record 48 of 51
-==139483==    at 0x483DFAF: realloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x4BB3A62: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==139483==    by 0x4BB7B72: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==139483==    by 0x48B6D29: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48A73A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BB47: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 12,768 bytes in 2 blocks are still reachable in loss record 49 of 51
-==139483==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x48A7A24: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BB47: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 16,384 bytes in 1 blocks are still reachable in loss record 50 of 51
-==139483==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x48A76BF: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BB47: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== 21,168 bytes in 1 blocks are still reachable in loss record 51 of 51
-==139483==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==139483==    by 0x4BB3884: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==139483==    by 0x4BB7B72: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==139483==    by 0x48B6D29: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x48A73A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
-==139483==    by 0x10BB47: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10A9A5: ft_aff_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483==    by 0x10AABF: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
-==139483== 
-==139483== LEAK SUMMARY:
-==139483==    definitely lost: 0 bytes in 0 blocks
-==139483==    indirectly lost: 0 bytes in 0 blocks
-==139483==      possibly lost: 0 bytes in 0 blocks
-==139483==    still reachable: 81,219 bytes in 111 blocks
-==139483==         suppressed: 0 bytes in 0 blocks
-==139483== 
-==139483== For lists of detected and suppressed errors, rerun with: -s
-==139483== ERROR SUMMARY: 34425 errors from 1 contexts (suppressed: 3 from 1)
+==190420== Memcheck, a memory error detector
+==190420== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==190420== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==190420== Command: ./fdf 42.fdf
+==190420== Parent PID: 109322
+==190420== 
+==190420== Use of uninitialised value of size 8
+==190420==    at 0x10AFB8: ft_colors (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AA91: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==  Uninitialised value was created by a stack allocation
+==190420==    at 0x10AA23: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== Use of uninitialised value of size 8
+==190420==    at 0x10AFCB: ft_colors (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AA91: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==  Uninitialised value was created by a stack allocation
+==190420==    at 0x10AA23: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 
+==190420== HEAP SUMMARY:
+==190420==     in use at exit: 81,363 bytes in 113 blocks
+==190420==   total heap usage: 746 allocs, 633 frees, 149,394 bytes allocated
+==190420== 
+==190420== 3 bytes in 1 blocks are still reachable in loss record 1 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x4A553BE: strdup (strdup.c:42)
+==190420==    by 0x48A7385: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10BCE7: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 8 bytes in 1 blocks are still reachable in loss record 2 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x4A553BE: strdup (strdup.c:42)
+==190420==    by 0x48A125E: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48723F0: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x486D7B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x10BB23: mlx_int_deal_shm (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10BD71: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 8 bytes in 1 blocks are still reachable in loss record 3 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x4872144: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x48721AE: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x48725A2: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x486D7B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x10BB23: mlx_int_deal_shm (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10BD71: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 10 bytes in 1 blocks are still reachable in loss record 4 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x4A553BE: strdup (strdup.c:42)
+==190420==    by 0x48A125E: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x490DC43: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48A7E19: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10BCE7: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 16 bytes in 1 blocks are still reachable in loss record 5 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x4BB6F81: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==190420==    by 0x4BB53FB: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==190420==    by 0x4BB38F5: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==190420==    by 0x4BB7B72: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==190420==    by 0x48B6D29: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48A73A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10BCE7: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 21 bytes in 1 blocks are still reachable in loss record 6 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x48A783C: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10BCE7: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 24 bytes in 1 blocks are still reachable in loss record 7 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x4872351: XextCreateExtension (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x4871E1C: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x487219B: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x48725A2: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x486D7B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x10BB23: mlx_int_deal_shm (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10BD71: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 24 bytes in 1 blocks are still reachable in loss record 8 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x4A553BE: strdup (strdup.c:42)
+==190420==    by 0x48A125E: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48723F0: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x4871E5A: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x487219B: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x48725A2: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x486D7B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x10BB23: mlx_int_deal_shm (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10BD71: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 24 bytes in 1 blocks are still reachable in loss record 9 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x48721CD: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x48725A2: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x486D7B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x10BB23: mlx_int_deal_shm (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10BD71: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 32 bytes in 1 blocks are still reachable in loss record 10 of 51
+==190420==    at 0x483B723: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x483E017: realloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x4BB6B9E: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==190420==    by 0x4BB6C2B: xcb_get_extension_data (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==190420==    by 0x4BB413E: xcb_prefetch_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==190420==    by 0x4BB41B4: xcb_get_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==190420==    by 0x48A7CD8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10BCE7: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 32 bytes in 1 blocks are still reachable in loss record 11 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x4BB60C5: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==190420==    by 0x4BB3E9E: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==190420==    by 0x4BB561E: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==190420==    by 0x4BB5734: xcb_wait_for_reply (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==190420==    by 0x4BB6C82: xcb_get_extension_data (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==190420==    by 0x4BB413E: xcb_prefetch_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==190420==    by 0x4BB41B4: xcb_get_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==190420==    by 0x48A7CD8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10BCE7: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 32 bytes in 1 blocks are still reachable in loss record 12 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x48723CF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x486D7B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x10BB23: mlx_int_deal_shm (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10BD71: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 32 bytes in 1 blocks are still reachable in loss record 13 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x48723CF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x4871E5A: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x487219B: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x48725A2: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x486D7B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x10BB23: mlx_int_deal_shm (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10BD71: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 40 bytes in 1 blocks are still reachable in loss record 14 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x48B8DD1: _XPollfdCacheInit (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48A766F: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10BCE7: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 48 bytes in 1 blocks are still reachable in loss record 15 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x48B6CB1: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48A73A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10BCE7: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 48 bytes in 1 blocks are still reachable in loss record 16 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x48B6CC7: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48A73A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10BCE7: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 48 bytes in 1 blocks are still reachable in loss record 17 of 51
+==190420==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x49086E0: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x4904968: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x4904E57: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10C958: mlx_int_param_KeyRelease (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10BFE8: mlx_loop (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AA17: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 72 bytes in 1 blocks are still reachable in loss record 18 of 51
+==190420==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x48A7721: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10BCE7: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 72 bytes in 1 blocks are still reachable in loss record 19 of 51
+==190420==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x49086C4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x4904968: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x4904E57: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10C958: mlx_int_param_KeyRelease (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10BFE8: mlx_loop (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AA17: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 104 bytes in 1 blocks are still reachable in loss record 20 of 51
+==190420==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x48B6BB2: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48A73A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10BCE7: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 112 bytes in 1 blocks are still reachable in loss record 21 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x10BCCF: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 112 bytes in 1 blocks are still reachable in loss record 22 of 51
+==190420==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x48A79A0: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10BCE7: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 128 bytes in 1 blocks are still reachable in loss record 23 of 51
+==190420==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x48A78D0: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10BCE7: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 128 bytes in 1 blocks are still reachable in loss record 24 of 51
+==190420==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x48A124E: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x490DC43: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48A7E19: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10BCE7: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 128 bytes in 1 blocks are still reachable in loss record 25 of 51
+==190420==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x48A124E: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48723F0: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x486D7B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x10BB23: mlx_int_deal_shm (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10BD71: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 128 bytes in 1 blocks are still reachable in loss record 26 of 51
+==190420==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x48A124E: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48723F0: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x4871E5A: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x487219B: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x48725A2: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x486D7B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x10BB23: mlx_int_deal_shm (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10BD71: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 149 bytes in 1 blocks are still reachable in loss record 27 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x48A7E81: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10BCE7: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 152 bytes in 1 blocks are still reachable in loss record 28 of 51
+==190420==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x490DE3E: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48A7E19: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10BCE7: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 160 bytes in 1 blocks are still reachable in loss record 29 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x489582F: XCreateGC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48A7D48: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10BCE7: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 160 bytes in 1 blocks are still reachable in loss record 30 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x489582F: XCreateGC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10BEB8: mlx_new_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9D6: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 168 bytes in 1 blocks are still reachable in loss record 31 of 51
+==190420==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x48A7C37: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10BCE7: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 208 bytes in 1 blocks are still reachable in loss record 32 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x48720F9: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x48721AE: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x48725A2: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x486D7B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==190420==    by 0x10BB23: mlx_int_deal_shm (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10BD71: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 208 bytes in 1 blocks are still reachable in loss record 33 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x48BA53E: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48B70B6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48B7B10: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48B6039: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10C0F5: mlx_int_wait_first_expose (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10BEF7: mlx_new_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9D6: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 256 bytes in 1 blocks are still reachable in loss record 34 of 51
+==190420==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x49165DD: XkbAllocClientMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x490845D: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x49085BD: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x490864C: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x4908714: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x4904968: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x4904E57: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10C958: mlx_int_param_KeyRelease (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10BFE8: mlx_loop (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AA17: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 344 bytes in 6 blocks are still reachable in loss record 35 of 51
+==190420==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x4907DD5: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x49085BD: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x490864C: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x4908714: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x4904968: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x4904E57: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10C958: mlx_int_param_KeyRelease (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10BFE8: mlx_loop (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AA17: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 352 bytes in 1 blocks are still reachable in loss record 36 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x10AC0D: ft_init_map (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AD24: ft_read_map (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AA69: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 624 bytes in 3 blocks are still reachable in loss record 37 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x48BA53E: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48B70B6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48B7B59: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48B6039: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10C0F5: mlx_int_wait_first_expose (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10BEF7: mlx_new_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9D6: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 832 bytes in 4 blocks are still reachable in loss record 38 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x48BA53E: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48B70B6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48B801C: _XReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48B37F0: XSync (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10C347: mlx_int_new_xshm_image (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10C582: mlx_new_image (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A8E8: ft_print_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AA08: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 836 bytes in 11 blocks are still reachable in loss record 39 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x10AC8C: ft_init_map (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AD24: ft_read_map (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AA69: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 936 bytes in 1 blocks are still reachable in loss record 40 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x10BE30: mlx_new_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9D6: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 1,120 bytes in 1 blocks are still reachable in loss record 41 of 51
+==190420==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x49166A1: XkbAllocClientMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x490826F: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x49085BD: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x490864C: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x4908714: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x4904968: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x4904E57: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10C958: mlx_int_param_KeyRelease (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10BFE8: mlx_loop (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AA17: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 1,248 bytes in 6 blocks are still reachable in loss record 42 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x48BA53E: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48B70B6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48B7B10: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48B6070: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10C0F5: mlx_int_wait_first_expose (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10BEF7: mlx_new_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9D6: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 2,028 bytes in 27 blocks are still reachable in loss record 43 of 51
+==190420==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x4907BBD: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x49085BD: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x490864C: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x4908714: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x4904968: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x4904E57: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10C958: mlx_int_param_KeyRelease (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10BFE8: mlx_loop (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AA17: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 2,048 bytes in 1 blocks are still reachable in loss record 44 of 51
+==190420==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x4907DF4: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x49085BD: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x490864C: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x4908714: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x4904968: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x4904E57: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10C958: mlx_int_param_KeyRelease (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10BFE8: mlx_loop (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AA17: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 2,288 bytes in 11 blocks are still reachable in loss record 45 of 51
+==190420==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x48BA53E: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48B70B6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48B7B59: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48B6070: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10C0F5: mlx_int_wait_first_expose (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10BEF7: mlx_new_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9D6: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 4,688 bytes in 1 blocks are still reachable in loss record 46 of 51
+==190420==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x48A7371: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10BCE7: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 5,120 bytes in 1 blocks are still reachable in loss record 47 of 51
+==190420==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x49084EC: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x49085BD: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x490864C: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x4908714: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x4904968: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x4904E57: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10C958: mlx_int_param_KeyRelease (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10BFE8: mlx_loop (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AA17: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 5,684 bytes in 1 blocks are still reachable in loss record 48 of 51
+==190420==    at 0x483DFAF: realloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x4BB3A62: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==190420==    by 0x4BB7B72: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==190420==    by 0x48B6D29: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48A73A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10BCE7: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 12,768 bytes in 2 blocks are still reachable in loss record 49 of 51
+==190420==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x48A7A24: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10BCE7: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 16,384 bytes in 1 blocks are still reachable in loss record 50 of 51
+==190420==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x48A76BF: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10BCE7: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== 21,168 bytes in 1 blocks are still reachable in loss record 51 of 51
+==190420==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==190420==    by 0x4BB3884: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==190420==    by 0x4BB7B72: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==190420==    by 0x48B6D29: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x48A73A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==190420==    by 0x10BCE7: mlx_init (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10A9AB: ft_create_window (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420==    by 0x10AAD7: main (in /mnt/nfs/homes/mbascuna/github/FdF/fdf)
+==190420== 
+==190420== LEAK SUMMARY:
+==190420==    definitely lost: 0 bytes in 0 blocks
+==190420==    indirectly lost: 0 bytes in 0 blocks
+==190420==      possibly lost: 0 bytes in 0 blocks
+==190420==    still reachable: 81,363 bytes in 113 blocks
+==190420==         suppressed: 0 bytes in 0 blocks
+==190420== 
+==190420== For lists of detected and suppressed errors, rerun with: -s
+==190420== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 2 from 1)

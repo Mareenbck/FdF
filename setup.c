@@ -39,29 +39,30 @@ void	ft_space(t_mlx *mlx)
 		mlx->map.space = 1;
 }
 
-void	ft_colors(t_mlx *mlx, t_color *color)
+void	ft_colors(t_mlx *mlx)
 {
 	// t_color color;
-	int i = 0;
-	int j = 0;
+	// int i = 0;
+	// int j = 0;
 	// int k = 0;
 	mlx->data.z = mlx->data.tab[mlx->data.y][mlx->data.x];
-	if (mlx->data.tab[mlx->data.y + 1])
-		i = mlx->data.tab[mlx->data.y + 1][mlx->data.x];
-	if (mlx->data.tab[mlx->data.y][mlx->data.x + 1])
-		j = mlx->data.tab[mlx->data.y][mlx->data.x + 1];
-	// if ((data->tab[data->y + 1]) && (data->tab[data->y][data->x + 1]))
-	 	// k = data->tab[data->y + 1][data->x + 1];
-	if (mlx->data.z > 0 || i > 0 || j < 0)
+	// if (mlx->data.tab[mlx->data.y -1])
+	// 	i = mlx->data.tab[mlx->data.y - 1][mlx->data.x];
+	// if (mlx->data.tab[mlx->data.y][mlx->data.x + 1])
+	// 	j = mlx->data.tab[mlx->data.y][mlx->data.x + 1];
+	// if ((mlx->data.tab[mlx->data.y + 1]) && (mlx->data.tab[mlx->data.y][mlx->data.x + 1]))
+	//  	k = mlx->data.tab[mlx->data.y + 1][mlx->data.x + 1];
+	// printf(" i = %d\n", i);
+	if (mlx->data.z > 0)
 	{
-		color->red = 255;
-		color->green = 153;
-		color->blue = 158;
+		mlx->color.red = 255;
+		mlx->color.green = 153;
+		mlx->color.blue = 158;
 	}
-	else
+	else if (mlx->data.z <= 0 && mlx->data.z > -5)
 	{
-		color->red = 94;
-		color->green = 100;
-		color->blue = 114;
+		mlx->color.red = 94;
+		mlx->color.green = 100;
+		mlx->color.blue = 114;
 	}
 }

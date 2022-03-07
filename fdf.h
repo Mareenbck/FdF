@@ -60,6 +60,13 @@ typedef struct	s_img {
 	int		endian;
 }				t_img;
 
+typedef struct	s_color 
+{
+	int red; 
+	int green;
+	int blue;
+}	t_color;
+
 typedef struct  s_mlx
 {
 	void *mlx_ptr;
@@ -72,15 +79,10 @@ typedef struct  s_mlx
 	t_data	data;
 	t_img	img;
 	t_map 	map;
+	t_color	color;
 }   t_mlx;
 
 
-typedef struct	s_color 
-{
-	int red; 
-	int green;
-	int blue;
-}	t_color;
 
 
 int main(int ac, char **av);
@@ -93,7 +95,7 @@ void   ft_fill_map(t_data **matrix, int y, char *line);
 void	**ft_free_tab(int **tab);
 
 void ft_bresenham(t_mlx *mlx);
-void	my_mlx_pixel_put(t_mlx *mlx, int x, int y, t_color *color);
+void	my_mlx_pixel_put(t_mlx *mlx, int x, int y);
 
 
 /*****DRAW.C*****/
@@ -107,11 +109,10 @@ void	ft_draw(t_mlx *mlx);
 void	ft_window_size(t_mlx *mlx);
 void	ft_padding(t_mlx *mlx);
 void	ft_space(t_mlx *mlx);
-void	ft_colors(t_mlx *mlx, t_color *color);
+void	ft_colors(t_mlx *mlx);
 
 /*****EVENT.C*****/
 int deal_key(int key, t_mlx *mlx);
-int ft_expose_hook(t_mlx *mlx);
-
+int ft_print_window(t_mlx *mlx);
 
 #endif
