@@ -13,10 +13,10 @@
 #include "fdf.h"
 
 
-void	ft_window_size(t_data *data, t_mlx *mlx)
+void	ft_window_size(t_mlx *mlx)
 {
-	mlx->win_len = data->col * 100;
-	mlx->win_width = data->line * 100;
+	mlx->win_len = mlx->data.col * 100;
+	mlx->win_width = mlx->data.line * 100;
 }
 
 void	ft_padding(t_mlx *mlx)
@@ -25,36 +25,34 @@ void	ft_padding(t_mlx *mlx)
 	mlx->pad_top_bot = mlx->win_width / 8;
 }
 
-void	ft_space(t_map *map, t_data *data)
+void	ft_space(t_mlx *mlx)
 {
-	if (data->col <= 20)
-		map->space = 30;
-	else if (data->col <= 50)
-		map->space = 20;
-	else if (data->col <= 100)
-		map->space = 15;
-	else if (data->col <= 200)
-		map->space = 5;
+	if (mlx->data.col <= 20)
+		mlx->map.space = 30;
+	else if (mlx->data.col <= 50)
+		mlx->map.space = 20;
+	else if (mlx->data.col <= 100)
+		mlx->map.space = 15;
+	else if (mlx->data.col <= 200)
+		mlx->map.space = 5;
 	else
-		map->space = 1;
+		mlx->map.space = 1;
 }
 
-void	ft_colors(t_data *data, t_color *color)
+void	ft_colors(t_mlx *mlx, t_color *color)
 {
 	// t_color color;
 	int i = 0;
 	int j = 0;
 	// int k = 0;
-
-
-	data->z = data->tab[data->y][data->x];
-	if (data->tab[data->y + 1])
-		i = data->tab[data->y + 1][data->x];
-	if (data->tab[data->y][data->x + 1])
-		j = data->tab[data->y][data->x + 1];
+	mlx->data.z = mlx->data.tab[mlx->data.y][mlx->data.x];
+	if (mlx->data.tab[mlx->data.y + 1])
+		i = mlx->data.tab[mlx->data.y + 1][mlx->data.x];
+	if (mlx->data.tab[mlx->data.y][mlx->data.x + 1])
+		j = mlx->data.tab[mlx->data.y][mlx->data.x + 1];
 	// if ((data->tab[data->y + 1]) && (data->tab[data->y][data->x + 1]))
 	 	// k = data->tab[data->y + 1][data->x + 1];
-	if (data->z > 0 || i > 0 || j < 0)
+	if (mlx->data.z > 0 || i > 0 || j < 0)
 	{
 		color->red = 255;
 		color->green = 153;

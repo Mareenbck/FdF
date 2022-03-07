@@ -12,46 +12,48 @@
 
 #include "fdf.h"
 
-void ft_bresenham(t_mlx *mlx, t_map *map, t_img *img, t_data *data)
+void ft_bresenham(t_mlx *mlx)
 {
 	// printf(">>FT_LINE<<\n");
-	// printf("BRES : map->x : %d, map->x1 : %d, map->x2 : %d\n", map->x, map->x1, map->x2);
 	// printf("map->y : %d, map->y1 : %d, map->y2 : %d\n", map->y, map->y1, map->y2);
 	// printf("map->z = %d\n", map->z);
 	t_color	color;
-	map->dx = abs(map->x2 - map->x1);
-	map->dy = -abs(map->y2 - map->y1);
-
+	mlx->map.dx = abs(mlx->map.x2 - mlx->map.x1);
+	mlx->map.dy = -abs(mlx->map.y2 - mlx->map.y1);
+	// printf("BRES,");
 	// >>> DETERMINER STEP <<<
-	if (map->x2 > map->x1)
-		map->step_x = 1;
+	if (mlx->map.x2 > mlx->map.x1)
+		mlx->map.step_x = 1;
 	else
-		map->step_x = -1;
-	if (map->y2 > map->y1)
-		map->step_y = 1;
+		mlx->map.step_x = -1;
+	if (mlx->map.y2 > mlx->map.y1)
+		mlx->map.step_y = 1;
 	else
-		map->step_y = -1;
-	map->e = map->dy + map->dx;
+		mlx->map.step_y = -1;
+	mlx->map.e = mlx->map.dy + mlx->map.dx;
 	while (1)
 	{
-		ft_colors(data, &color);
-		my_mlx_pixel_put(mlx, img, map->x1 + mlx->pad_left_right, map->y1 + mlx->pad_top_bot, &color);
-		if ((map->x1 == map->x2 && map->y1 == map->y2))
+		ft_colors(mlx, &color);
+	// printf("BRES : mlx->map.x : %d, mlx->map.x1 : %d, mlx->map.x2 : %d\n", mlx->map.x, mlx->map.x1, mlx->map.x2);
+	// printf("BRES : mlx->map.y : %d, mlx->map.y1 : %d, mlx->map.y2 : %d\n", mlx->map.y, mlx->map.y1, mlx->map.y2);
+		my_mlx_pixel_put(mlx, mlx->map.x1 + mlx->pad_left_right, mlx->map.y1 + mlx->pad_top_bot, &color);
+		// printf("passe pixel put");
+		if ((mlx->map.x1 == mlx->map.x2 && mlx->map.y1 == mlx->map.y2))
 			break ;
-		map->e2 = map->e * 2;
-		if (map->e2 >= map->dy)
+		mlx->map.e2 = mlx->map.e * 2;
+		if (mlx->map.e2 >= mlx->map.dy)
 		{
-			if (map->x1 == map->x2) 
+			if (mlx->map.x1 == mlx->map.x2) 
 				break ;
-			map->e += map->dy;
-			map->x1 += map->step_x;
+			mlx->map.e += mlx->map.dy;
+			mlx->map.x1 += mlx->map.step_x;
 		}
-		if (map->e2 <= map->dx)
+		if (mlx->map.e2 <= mlx->map.dx)
 		{
-			if (map->y1 == map->y2) 
+			if (mlx->map.y1 == mlx->map.y2) 
 				break ;
-			map->e += map->dx;
-			map->y1 += map->step_y;
+			mlx->map.e += mlx->map.dx;
+			mlx->map.y1 += mlx->map.step_y;
 		}
 	}
 }
