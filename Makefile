@@ -5,7 +5,8 @@ LIB_DIR = ./libft
 LIBFT	= ./libft/libft.a
 
 SRCS	= main.c map.c setup.c \
-		  draw.c event.c line.c
+		  draw.c event.c line.c \
+		  rotate.c
 
 OBJS	= ${SRCS:.c=.o}
 
@@ -31,7 +32,7 @@ all:		${NAME}
 
 ${NAME}:	${OBJS} ${LIBFT}
 			@echo "\033[34m----Compiling----"
-			@${CC} ${OBJS} -L ${LIBX_DIR} -lmlx ${LDLIBS} -o ${NAME} ${LIBFT}
+			@${CC} ${OBJS} -L ${LIBX_DIR} -lmlx -lm ${LDLIBS} -o ${NAME} ${LIBFT}
 			@echo "OK"
 
 ${LIBFT}:

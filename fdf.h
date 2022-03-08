@@ -50,6 +50,9 @@ typedef struct s_map
 	int dy;
 	int e;
 	int e2;
+	int rx;
+	int ry;
+	int rz;
 }	t_map;
 
 typedef struct	s_img {
@@ -65,6 +68,12 @@ typedef struct	s_color
 	int red; 
 	int green;
 	int blue;
+	int	next_x;
+	int next_x2;
+	int	next_y;
+	int	next_diago;
+	int	before;
+	int	x_before;
 }	t_color;
 
 typedef struct  s_mlx
@@ -76,6 +85,7 @@ typedef struct  s_mlx
 	int pad_left_right;
 	int pad_top_bot;
 	int	altitude;
+	double x_angle;
 	t_data	data;
 	t_img	img;
 	t_map 	map;
@@ -96,7 +106,8 @@ void	**ft_free_tab(int **tab);
 
 void ft_bresenham(t_mlx *mlx);
 void	my_mlx_pixel_put(t_mlx *mlx, int x, int y);
-
+void		rotate(t_mlx *mlx);
+void	rot_x(t_mlx *mlx, double ang);
 
 /*****DRAW.C*****/
 void	li_pt_begin(t_map *map);
@@ -110,9 +121,12 @@ void	ft_window_size(t_mlx *mlx);
 void	ft_padding(t_mlx *mlx);
 void	ft_space(t_mlx *mlx);
 void	ft_colors(t_mlx *mlx);
+void	ft_colors_high(t_mlx *mlx);
 
 /*****EVENT.C*****/
 int deal_key(int key, t_mlx *mlx);
+int mouse_hook(int key, t_mlx *mlx);
 int ft_print_window(t_mlx *mlx);
+void	ft_change_color(int key, t_mlx *mlx);
 
 #endif

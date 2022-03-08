@@ -41,28 +41,53 @@ void	ft_space(t_mlx *mlx)
 
 void	ft_colors(t_mlx *mlx)
 {
-	// t_color color;
-	// int i = 0;
-	// int j = 0;
-	// int k = 0;
-	mlx->data.z = mlx->data.tab[mlx->data.y][mlx->data.x];
-	// if (mlx->data.tab[mlx->data.y -1])
-	// 	i = mlx->data.tab[mlx->data.y - 1][mlx->data.x];
+// 	printf("ft_colors : next_x : %d, next_y : %d, next_diago : %d\n", mlx->color.next_x, mlx->color.next_y, mlx->color.next_diago);
+// 	printf("ft_colors : data.x : %d, data_y : %d, before : %d\n", mlx->data.x, mlx->data.y, mlx->color.before);
 	// if (mlx->data.tab[mlx->data.y][mlx->data.x + 1])
-	// 	j = mlx->data.tab[mlx->data.y][mlx->data.x + 1];
-	// if ((mlx->data.tab[mlx->data.y + 1]) && (mlx->data.tab[mlx->data.y][mlx->data.x + 1]))
-	//  	k = mlx->data.tab[mlx->data.y + 1][mlx->data.x + 1];
-	// printf(" i = %d\n", i);
-	if (mlx->data.z > 0)
+	mlx->color.next_x = mlx->data.tab[mlx->data.y][mlx->data.x + 1] - mlx->data.tab[mlx->data.y][mlx->data.x];
+	mlx->color.x_before = mlx->data.tab[mlx->data.y][mlx->data.x - 1] - mlx->data.tab[mlx->data.y][mlx->data.x];
+	mlx->color.next_x2 = mlx->data.tab[mlx->data.y][mlx->data.x + 2] - mlx->data.tab[mlx->data.y][mlx->data.x];
+	printf("ft_colors : color next : %d, netx2 : %d, before : %d\n", mlx->color.next_x, mlx->color.next_x2, mlx->color.before);
+	if (mlx->data.tab[mlx->data.y + 1])
+		mlx->color.next_y = mlx->data.tab[mlx->data.y + 1][mlx->data.x] - mlx->data.tab[mlx->data.y][mlx->data.x];
+	if (mlx->data.x + 1 && mlx->data.tab[mlx->data.y + 1])
+		mlx->color.next_diago = mlx->data.tab[mlx->data.y + 1][mlx->data.x + 1] - mlx->data.tab[mlx->data.y][mlx->data.x];
+	if (mlx->color.next_x != 0 || mlx->color.next_y != 0 || mlx->color.next_diago != 0 || mlx->color.before != 0 || (mlx->color.next_x2 != 0 && mlx->color.x_before != 0) )
 	{
 		mlx->color.red = 255;
 		mlx->color.green = 153;
 		mlx->color.blue = 158;
 	}
-	else if (mlx->data.z <= 0 && mlx->data.z > -5)
+	else 
 	{
 		mlx->color.red = 94;
 		mlx->color.green = 100;
 		mlx->color.blue = 114;
 	}
+}
+
+void	ft_colors_high(t_mlx *mlx)
+{
+		mlx->data.z = mlx->data.tab[mlx->data.y][mlx->data.x];
+		if (mlx->color.next_x > 0 || mlx->data.z > 0)
+		{
+			if (mlx->data.z < 6)
+			{
+				mlx->color.red = 255;
+				mlx->color.green = 153;
+				mlx->color.blue = 158;
+			}
+			else
+			{
+				mlx->color.red = 150;
+				mlx->color.green = 45;
+				mlx->color.blue = 120;
+			}
+		}
+		else 
+		{
+			mlx->color.red = 94;
+			mlx->color.green = 100;
+			mlx->color.blue = 114;
+		}
 }

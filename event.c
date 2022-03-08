@@ -51,6 +51,23 @@ void	ft_change_color(int key, t_mlx *mlx)
 	else if (key == 98)
 		mlx->color.blue += 20;
 }
+
+void	ft_set_angle(int key, t_mlx *mlx)
+{
+	if (key == 107)
+		mlx->x_angle -= 5;
+	else if (key == 106)
+		mlx->x_angle += 5;
+	
+	printf("angle : %f\n", mlx->x_angle);
+	// else if (key == 6)
+	// 	map_info->controls->x_angle -= 5;
+	// else if (key == 7)
+	// 	map_info->controls->x_angle += 5;
+	// mlx_clear_window(MLX, WIN);
+	// expose_hook(map_info);
+}
+
 //appelee avec numero de touche et void * transmis dans le main
 //utiliser un putnbr pour recuperer le numero dela touche et adapter comportement en fonction de la touche
 int deal_key(int key, t_mlx *mlx)
@@ -69,7 +86,28 @@ int deal_key(int key, t_mlx *mlx)
 		ft_move(key, mlx);
 	else if (key == 114 || key == 103 || key == 98)
 		ft_change_color(key, mlx);
+	else if (key == 107|| key == 106)
+		ft_set_angle(key, mlx);
 	ft_print_window(mlx);
 	return (0);
 }
 
+void	ft_move_mouse(int key, t_mlx *mlx)
+{
+	if (key == 4)
+		mlx->pad_top_bot -= 40;
+	else if (key == 5)
+		mlx->pad_top_bot += 40;
+	// else if (key == 65361)
+	// 	mlx->pad_left_right -= 40;
+	// else if (key == 65363)
+	// 	mlx->pad_left_right += 40;
+}
+
+int mouse_hook(int key, t_mlx *mlx)
+{
+	printf("key = %d\n", key);
+	if (key == 4 || key == 5)
+		ft_move_mouse(key, mlx);
+	return (0);
+}

@@ -14,7 +14,6 @@
 
 void ft_bresenham(t_mlx *mlx)
 {
-	// printf(">>FT_LINE<<\n");
 	// printf("map->y : %d, map->y1 : %d, map->y2 : %d\n", map->y, map->y1, map->y2);
 	// printf("map->z = %d\n", map->z);
 
