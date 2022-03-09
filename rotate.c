@@ -10,20 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "fdf.h"
-// #include <math.h>
+#include "fdf.h"
+#include <math.h>
 
-// void	rot_x(t_mlx *mlx, double ang)
-// {
-// 	int	y;
-// 	int	z;
-//     ang = ang * 3.14159 / 180;
-// 	y = (double)mlx->map.y;
-//     z = (double)mlx->map.z;
-// 	mlx->map.y = y * cos(ang) + z * sin(ang);
-// 	mlx->map.z = -y * sin(ang) + z * cos(ang);
-//     printf("y : %d, map.y : %d\n", y, mlx->map.y);
-// }
+void	rot_x(t_mlx *mlx, double ang)
+{
+	int	y;
+	int	z;
+    ang = ang * 3.14159 / 180;
+	y = (double)mlx->map.y;
+    z = (double)mlx->map.z;
+	mlx->map.y = y * cos(ang) + z * sin(ang);
+	mlx->map.z = -y * sin(ang) + z * cos(ang);
+    printf("y : %d, map.y : %d\n", y, mlx->map.y);
+}
 
 // static void	rot_y(t_mlx *mlx, double ang)
 // {

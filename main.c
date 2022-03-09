@@ -26,19 +26,23 @@ void	my_mlx_pixel_put(t_mlx *mlx, int x, int y)
 int ft_print_window(t_mlx *mlx)
 {
 	mlx->img.img_ptr = mlx_new_image(mlx->mlx_ptr, mlx->win_len, mlx->win_width);
+	if (!mlx->img.img_ptr)
+		ft_exit_win(mlx);
 	mlx->img.addr = mlx_get_data_addr(mlx->img.img_ptr, &mlx->img.bits_per_pixel, &mlx->img.line_length, &mlx->img.endian);
 	ft_draw(mlx);
 	// rotate(mlx);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img.img_ptr, 0, 0);
-	mlx_destroy_image(mlx->mlx_ptr, mlx->img.img_ptr);
 	return (0);
 }
 
 void	ft_create_window(t_mlx *mlx)
 {
-	printf("aff_window : data->line : %d\n", mlx->data.line);
 	mlx->mlx_ptr = mlx_init();
+	if (!mlx->mlx_ptr)
+		return ;
 	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, mlx->win_len, mlx->win_width, "fdf");
+	if (!mlx->win_ptr)
+		return ;
 	mlx_key_hook(mlx->win_ptr, deal_key, mlx);
 	mlx_mouse_hook(mlx->win_ptr, mouse_hook, mlx);
 	ft_print_window(mlx);
@@ -56,13 +60,58 @@ void	ft_setup_colors(t_mlx *mlx)
 	mlx->color.before = 0;
 }
 
+
+
+void	ft_free_map(t_mlx *mlx)
+{
+	int	i;
+
+	i = 0;
+    if (!mlx->data.tab)
+        return ;
+    while (i < mlx->data.line)
+    {
+        free(mlx->data.tab[i]);
+        mlx->data.tab[i] = 0;
+        i++;
+    }
+    free(mlx->data.tab);
+}
+
+
+
+int	ft_exit_win(t_mlx *mlx)
+{
+	// free_map(mlx);
+	ft_free_map(mlx);
+	// ft_free_tab(mlx->data.tab);
+	if (!mlx)
+		exit(0);
+	if (mlx->img.img_ptr)
+		mlx_destroy_image(mlx->mlx_ptr, mlx->img.img_ptr);
+	if (mlx->win_ptr)
+		mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
+	if (mlx->mlx_ptr)
+	{
+		mlx_destroy_display(mlx->mlx_ptr);
+		free(mlx->mlx_ptr);
+	}
+	exit(0);
+	return (1);
+}
+
+
+
 int main(int ac, char **av)
 {
 	(void)ac;
 	t_mlx mlx;
+	int fd;
 
-
-	ft_read_map(av[1], &mlx.data);
+	fd = open(av[1], O_RDONLY, 0);
+	ft_read_map(fd, &mlx);
+	close(fd);
+	ft_fill_tab(av[1], &mlx);
 	// if (!map)
 	// 	ft_free_tab(map);
 	printf("main : data->col : %d\n", mlx.data.col);

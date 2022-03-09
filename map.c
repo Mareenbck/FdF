@@ -12,85 +12,85 @@
 
 #include "fdf.h"
 
-void	**ft_free_tab(int **tab)
+void	ft_free_tab(int **tab)
 {
 	int	i;
 
 	i = 0;
-    if (tab)
+    if (!tab)
+        return ;
+    while (tab[i])
     {
-        while (tab[i])
-        {
-            free(tab[i]);
-            tab[i] = NULL;
-            i++;
-        }
-        free(tab);
+        free(tab[i]);
+        tab[i] = 0;
+        i++;
     }
-	return (NULL);
+    free(tab);
 }
 
-int   **ft_init_map(int fd, t_data *data)
+void    ft_read_map(int fd, t_mlx *mlx)
 {
     char *get_line;
 
     get_line = ft_get_next_line(fd);
-    data->col = ft_count_words(get_line, ' ');
-    data->line = 0;
+    mlx->data.col = ft_count_words(get_line, ' ');
+    mlx->data.line = 0;
     while (get_line)
     {
         free(get_line);
-        data->line++;
+        mlx->data.line++;
         get_line = ft_get_next_line(fd);
     }
-    // free(get_line);
-    data->tab = (int **)malloc(sizeof(t_data) * data->line);
-    if (!data->tab)
-        return (NULL);
-    data->tab[data->line] = 0;
+}
 
-    // printf("DATA [%d] %ls \n",data->line, data->tab[data->line]);
-    while (data->line > 0)
-    { 
-        data->line--;
-        data->tab[data->line] = (int *)malloc(sizeof(int) * (data->col));
-        if (!data->tab[data->line])
+int **ft_init_tab(t_mlx *mlx)
+{
+    int **tab;
+
+    tab = (int **)malloc(sizeof(int *) * mlx->data.line);
+    if (!tab)
+        return (NULL);
+    // tab[mlx->data.line] = 0;
+    while (mlx->data.line > 0)
+    {
+        mlx->data.line--;
+        tab[mlx->data.line] = (int *)malloc(sizeof(int) * (mlx->data.col));
+        if (!tab[mlx->data.line])
         {
-            ft_free_tab(data->tab);
+            ft_free_tab(tab);
             return (NULL); 
         }
     }
-    return (data->tab);
+    return (tab);
 }
 
-t_data *ft_read_map(char *file, t_data *data)
+int ft_fill_tab(char *file, t_mlx *mlx)
 {
-    // t_data data;
-    char **split_line;
     int fd;
     char *get_line;
-    //OPEN A SECURISER
-    fd = open(file, O_RDONLY, 0);
-    ft_init_map(fd, data);
-    close(fd);
+    char **split_line;
+ //OPEN A SECURISER
+    
+    mlx->data.tab = ft_init_tab(mlx);
+
     fd = open(file, O_RDONLY, 0);
     get_line = ft_get_next_line(fd);
     while (get_line)
     {
         split_line = ft_split(get_line, ' ');
-        data->col = 0;
-        while (split_line[data->col] != NULL)
+        mlx->data.col = 0;
+        while (split_line[mlx->data.col] != NULL)
         {
-            data->tab[data->line][data->col] = ft_atoi(split_line[data->col]);
-            free(split_line[data->col]);
-            data->col++;
+            mlx->data.tab[mlx->data.line][mlx->data.col] = ft_atoi(split_line[mlx->data.col]);
+            free(split_line[mlx->data.col]);
+            mlx->data.col++;
         }
         free(get_line);
-        data->line++;
+        mlx->data.line++;
         get_line = ft_get_next_line(fd);
         free(split_line);
     }
     free(get_line);
     close(fd);
-    return (data);
+    return (0);
 }

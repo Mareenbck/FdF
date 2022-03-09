@@ -14,7 +14,7 @@
 # define FDF_H
 
 # include "./libft/libft.h"
-# include "./minilibx_x11/mlx.h"
+# include "./minilibx_linux/mlx.h"
 # include "./minilibx_macos/mlx.h"
 # include <stdio.h>
 # include <unistd.h>       
@@ -98,11 +98,14 @@ typedef struct  s_mlx
 int main(int ac, char **av);
 
 /*****MAP.C*****/
-t_data   *ft_read_map(char *file, t_data *data);
+void    ft_read_map(int fd, t_mlx *mlx);
 int	count_words(char const *s, char c);
+int **ft_init_tab(t_mlx *mlx);
+int ft_fill_tab(char *file, t_mlx *mlx);
 int   **ft_init_map(int fd, t_data *data);
 void   ft_fill_map(t_data **matrix, int y, char *line);
-void	**ft_free_tab(int **tab);
+void	ft_free_tab(int **tab);
+int	ft_exit_win(t_mlx *mlx);
 
 void ft_bresenham(t_mlx *mlx);
 void	my_mlx_pixel_put(t_mlx *mlx, int x, int y);

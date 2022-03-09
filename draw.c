@@ -14,7 +14,7 @@
 
 void	ft_line(t_mlx *mlx)
 {
-	rot_x(mlx, mlx->x_angle);
+	// rot_x(mlx, mlx->x_angle);
 	while (mlx->map.x < ((mlx->data.col - 1) * mlx->map.space))
 	{
         // Init des points 2

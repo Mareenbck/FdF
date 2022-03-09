@@ -75,8 +75,9 @@ int deal_key(int key, t_mlx *mlx)
 	printf("key = %d\n", key);
 	if (key == 65307)
 	{
-		mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
-		exit (0);
+		ft_exit_win(mlx);
+		// mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
+		// exit (0);
 	}
 	else if (key == 65451 || key == 65421)
 		ft_altitude(key, mlx);
@@ -91,7 +92,7 @@ int deal_key(int key, t_mlx *mlx)
 	ft_print_window(mlx);
 	return (0);
 }
-
+// int     mlx_mouse_move(void *win_ptr, int x, int y);
 void	ft_move_mouse(int key, t_mlx *mlx)
 {
 	if (key == 4)
@@ -104,6 +105,8 @@ void	ft_move_mouse(int key, t_mlx *mlx)
 	// 	mlx->pad_left_right += 40;
 }
 
+// int	mlx_mouse_hook (void *win_ptr, int (*funct_ptr)(), void *param);
+// mouse_hook(int button, int x,int y, void *param);
 int mouse_hook(int key, t_mlx *mlx)
 {
 	printf("key = %d\n", key);

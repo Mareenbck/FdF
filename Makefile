@@ -18,7 +18,7 @@ FLAGS	= -Wall -Wextra -Werror
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
-	LIBX_DIR = ./minilibx_x11
+	LIBX_DIR = ./minilibx_linux
 	LDLIBS = -lXext -lX11
 else
 	LIBX_DIR = ./minilibx_macos
