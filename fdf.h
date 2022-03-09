@@ -68,8 +68,15 @@ typedef struct	s_color
 	int red; 
 	int green;
 	int blue;
-	int	next_x;
-	int next_x2;
+	int	z_min;
+	int	z_max;
+	int	r_max;
+	int	r_min;
+	int	g_max;
+	int	g_min;
+	int	b_max;
+	int	b_min;
+	int next;
 	int	next_y;
 	int	next_diago;
 	int	before;
@@ -125,6 +132,8 @@ void	ft_padding(t_mlx *mlx);
 void	ft_space(t_mlx *mlx);
 void	ft_colors(t_mlx *mlx);
 void	ft_colors_high(t_mlx *mlx);
+void	ft_setup_colors(t_mlx *mlx);
+void	ft_colors_bis(t_mlx *mlx);
 
 /*****EVENT.C*****/
 int deal_key(int key, t_mlx *mlx);

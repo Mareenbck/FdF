@@ -49,16 +49,16 @@ void	ft_create_window(t_mlx *mlx)
 	mlx_loop(mlx->mlx_ptr);
 }
 
-void	ft_setup_colors(t_mlx *mlx)
-{
-	mlx->color.red = 94;
-	mlx->color.green = 100;
-	mlx->color.blue = 114;
-	mlx->color.next_x = 0;
-	mlx->color.next_y = 0;
-	mlx->color.next_diago = 0;
-	mlx->color.before = 0;
-}
+// void	ft_setup_colors(t_mlx *mlx)
+// {
+// 	mlx->color.red = 94;
+// 	mlx->color.green = 100;
+// 	mlx->color.blue = 114;
+// 	mlx->color.next_x = 0;
+// 	mlx->color.next_y = 0;
+// 	mlx->color.next_diago = 0;
+// 	mlx->color.before = 0;
+// }
 
 
 
@@ -82,9 +82,7 @@ void	ft_free_map(t_mlx *mlx)
 
 int	ft_exit_win(t_mlx *mlx)
 {
-	// free_map(mlx);
 	ft_free_map(mlx);
-	// ft_free_tab(mlx->data.tab);
 	if (!mlx)
 		exit(0);
 	if (mlx->img.img_ptr)
@@ -117,11 +115,11 @@ int main(int ac, char **av)
 	printf("main : data->col : %d\n", mlx.data.col);
 	mlx.altitude = 1;
 	mlx.x_angle = 0.0;
+	ft_setup_colors(&mlx);
 	ft_window_size(&mlx);
 	ft_padding(&mlx);
 	ft_space(&mlx);
 	ft_create_window(&mlx);
-	ft_setup_colors(&mlx);
 	// mlx.color.before = 0;
 	// ft_colors(&mlx);
 	return (0);

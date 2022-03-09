@@ -20,9 +20,10 @@ void	ft_line(t_mlx *mlx)
         // Init des points 2
 		mlx->map.x2 = mlx->map.x + mlx->map.space - mlx->map.y;
 	    mlx->map.y2 = mlx->map.y + mlx->map.x + mlx->map.space - (mlx->altitude * mlx->data.tab[mlx->data.y][mlx->data.x + 1]);
-		mlx->color.next_x = mlx->data.tab[mlx->data.y][mlx->data.x + 1];
-		mlx->map.z = mlx->data.tab[mlx->data.y][mlx->data.x];
-		ft_colors_high(mlx);
+		mlx->color.next = mlx->data.tab[mlx->data.y][mlx->data.x + 1];
+		// mlx->color.before = mlx->data.tab[mlx->data.y][mlx->data.x -1];
+		// mlx->map.z = mlx->data.tab[mlx->data.y][mlx->data.x];
+		ft_colors_bis(mlx);
 		ft_bresenham(mlx);
 		mlx->map.x += mlx->map.space + 1;
 		mlx->map.x1 = mlx->map.x2;
@@ -38,10 +39,11 @@ void	ft_col(t_mlx *mlx)
 		// Init des points 2
 		mlx->map.x2 = mlx->map.x - mlx->map.y - mlx->map.space;
 	    mlx->map.y2 = mlx->map.x + mlx->map.y + mlx->map.space - (mlx->altitude * mlx->data.tab[mlx->data.y + 1][mlx->data.x]);
-		mlx->color.next_x = mlx->data.tab[mlx->data.y + 1][mlx->data.x];
-		mlx->map.z = mlx->data.tab[mlx->data.y][mlx->data.x];
-		
-		ft_colors_high(mlx);
+		// if (mlx->data.tab[mlx->data.y-1])
+		// 	mlx->color.before = mlx->data.tab[mlx->data.y - 1][mlx->data.x];
+		mlx->color.next = mlx->data.tab[mlx->data.y + 1][mlx->data.x];
+		// mlx->map.z = mlx->data.tab[mlx->data.y][mlx->data.x];
+		ft_colors_bis(mlx);
 		ft_bresenham(mlx);
 		mlx->map.y += mlx->map.space + 1;
 		mlx->map.x1 = mlx->map.x2;

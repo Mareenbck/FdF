@@ -28,6 +28,7 @@ void	ft_free_tab(int **tab)
     free(tab);
 }
 
+
 void    ft_read_map(int fd, t_mlx *mlx)
 {
     char *get_line;

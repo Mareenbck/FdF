@@ -18,6 +18,8 @@ void	ft_altitude(int key, t_mlx *mlx)
 		mlx->altitude += 2;
 	else if (key == 65421)
 		mlx->altitude -= 2;
+	if (mlx->img.img_ptr)
+		mlx_destroy_image(mlx->mlx_ptr, mlx->img.img_ptr);
 }
 
 void	ft_zoom(int key, t_mlx *mlx)
@@ -27,6 +29,8 @@ void	ft_zoom(int key, t_mlx *mlx)
 	else if (key == 111)
 		if (mlx->map.space > 5)
 			mlx->map.space -= 5;
+	if (mlx->img.img_ptr)
+		mlx_destroy_image(mlx->mlx_ptr, mlx->img.img_ptr);
 }
 
 
@@ -40,6 +44,8 @@ void	ft_move(int key, t_mlx *mlx)
 		mlx->pad_left_right -= 40;
 	else if (key == 65363)
 		mlx->pad_left_right += 40;
+	if (mlx->img.img_ptr)
+		mlx_destroy_image(mlx->mlx_ptr, mlx->img.img_ptr);
 }
 
 void	ft_change_color(int key, t_mlx *mlx)
@@ -50,6 +56,8 @@ void	ft_change_color(int key, t_mlx *mlx)
 		mlx->color.green += 20;
 	else if (key == 98)
 		mlx->color.blue += 20;
+	if (mlx->img.img_ptr)
+		mlx_destroy_image(mlx->mlx_ptr, mlx->img.img_ptr);
 }
 
 void	ft_set_angle(int key, t_mlx *mlx)
@@ -74,11 +82,7 @@ int deal_key(int key, t_mlx *mlx)
 { 
 	printf("key = %d\n", key);
 	if (key == 65307)
-	{
 		ft_exit_win(mlx);
-		// mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
-		// exit (0);
-	}
 	else if (key == 65451 || key == 65421)
 		ft_altitude(key, mlx);
 	else if (key == 112 || key == 111)
