@@ -32,12 +32,9 @@ void ft_bresenham(t_mlx *mlx)
 	mlx->map.e = mlx->map.dy + mlx->map.dx;
 	while (1)
 	{
-		// ft_colors(mlx);
-		// printf("R:%d G:%d B:%d\n", mlx->color.red, mlx->color.green, mlx->color.blue);
-	// printf("BRES : mlx->map.x : %d, mlx->map.x1 : %d, mlx->map.x2 : %d\n", mlx->map.x, mlx->map.x1, mlx->map.x2);
-	// printf("BRES : mlx->map.y : %d, mlx->map.y1 : %d, mlx->map.y2 : %d\n", mlx->map.y, mlx->map.y1, mlx->map.y2);
-		my_mlx_pixel_put(mlx, mlx->map.x1 + mlx->pad_left_right, mlx->map.y1 + mlx->pad_top_bot);
-		// printf("passe pixel put");
+		// ft_colors_bis(mlx);
+		mlx->color.color = ft_colors_3(mlx);
+		my_mlx_pixel_put(mlx, mlx->map.x1 + mlx->pad_left_right, mlx->map.y1 + mlx->pad_top_bot, mlx->color.color);
 		if ((mlx->map.x1 == mlx->map.x2 && mlx->map.y1 == mlx->map.y2))
 			break ;
 		mlx->map.e2 = mlx->map.e * 2;

@@ -67,7 +67,7 @@ void	ft_set_angle(int key, t_mlx *mlx)
 	else if (key == 106)
 		mlx->x_angle += 5;
 	
-	printf("angle : %f\n", mlx->x_angle);
+	// printf("angle : %f\n", mlx->x_angle);
 	// else if (key == 6)
 	// 	map_info->controls->x_angle -= 5;
 	// else if (key == 7)
@@ -80,7 +80,7 @@ void	ft_set_angle(int key, t_mlx *mlx)
 //utiliser un putnbr pour recuperer le numero dela touche et adapter comportement en fonction de la touche
 int deal_key(int key, t_mlx *mlx)
 { 
-	printf("key = %d\n", key);
+	// printf("key = %d\n", key);
 	if (key == 65307)
 		ft_exit_win(mlx);
 	else if (key == 65451 || key == 65421)
@@ -113,7 +113,7 @@ void	ft_move_mouse(int key, t_mlx *mlx)
 // mouse_hook(int button, int x,int y, void *param);
 int mouse_hook(int key, t_mlx *mlx)
 {
-	printf("key = %d\n", key);
+	// printf("key = %d\n", key);
 	if (key == 4 || key == 5)
 		ft_move_mouse(key, mlx);
 	return (0);

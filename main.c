@@ -22,7 +22,6 @@ void	my_mlx_pixel_put(t_mlx *mlx, int x, int y)
 	}	
 }
 
-
 int ft_print_window(t_mlx *mlx)
 {
 	mlx->img.img_ptr = mlx_new_image(mlx->mlx_ptr, mlx->win_len, mlx->win_width);
@@ -112,7 +111,7 @@ int main(int ac, char **av)
 	ft_fill_tab(av[1], &mlx);
 	// if (!map)
 	// 	ft_free_tab(map);
-	printf("main : data->col : %d\n", mlx.data.col);
+	// printf("main : data->col : %d\n", mlx.data.col);
 	mlx.altitude = 1;
 	mlx.x_angle = 0.0;
 	ft_setup_colors(&mlx);

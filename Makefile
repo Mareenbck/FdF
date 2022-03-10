@@ -6,7 +6,7 @@ LIBFT	= ./libft/libft.a
 
 SRCS	= main.c map.c setup.c \
 		  draw.c event.c line.c \
-		  rotate.c
+		  rotate.c colors.c
 
 OBJS	= ${SRCS:.c=.o}
 

@@ -68,19 +68,16 @@ typedef struct	s_color
 	int red; 
 	int green;
 	int blue;
+	int color;
 	int	z_min;
 	int	z_max;
-	int	r_max;
-	int	r_min;
-	int	g_max;
-	int	g_min;
-	int	b_max;
-	int	b_min;
+	int	c_max;
+	int	c_min;
+	int	c_half;
+	int	c_third;
+	int	c_fourth;
+	int	c_start;
 	int next;
-	int	next_y;
-	int	next_diago;
-	int	before;
-	int	x_before;
 }	t_color;
 
 typedef struct  s_mlx
@@ -130,10 +127,10 @@ void	ft_draw(t_mlx *mlx);
 void	ft_window_size(t_mlx *mlx);
 void	ft_padding(t_mlx *mlx);
 void	ft_space(t_mlx *mlx);
-void	ft_colors(t_mlx *mlx);
-void	ft_colors_high(t_mlx *mlx);
+int		ft_colors_3(t_mlx *mlx);
+// void	ft_colors_high(t_mlx *mlx);
 void	ft_setup_colors(t_mlx *mlx);
-void	ft_colors_bis(t_mlx *mlx);
+// void	ft_colors_bis(t_mlx *mlx);
 
 /*****EVENT.C*****/
 int deal_key(int key, t_mlx *mlx);
