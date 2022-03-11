@@ -5,8 +5,8 @@ LIB_DIR = ./libft
 LIBFT	= ./libft/libft.a
 
 SRCS	= main.c map.c setup.c \
-		  draw.c event.c line.c \
-		  rotate.c colors.c
+		  draw.c event.c bresenham.c \
+		  free.c colors.c mlx_window.c
 
 OBJS	= ${SRCS:.c=.o}
 

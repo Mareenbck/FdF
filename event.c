@@ -48,18 +48,6 @@ void	ft_move(int key, t_mlx *mlx)
 		mlx_destroy_image(mlx->mlx_ptr, mlx->img.img_ptr);
 }
 
-void	ft_change_color(int key, t_mlx *mlx)
-{
-	if (key == 114)
-		mlx->color.red += 20;
-	else if (key == 103)
-		mlx->color.green += 20;
-	else if (key == 98)
-		mlx->color.blue += 20;
-	if (mlx->img.img_ptr)
-		mlx_destroy_image(mlx->mlx_ptr, mlx->img.img_ptr);
-}
-
 void	ft_set_angle(int key, t_mlx *mlx)
 {
 	if (key == 107)

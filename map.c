@@ -12,23 +12,6 @@
 
 #include "fdf.h"
 
-void	ft_free_tab(int **tab)
-{
-	int	i;
-
-	i = 0;
-    if (!tab)
-        return ;
-    while (tab[i])
-    {
-        free(tab[i]);
-        tab[i] = 0;
-        i++;
-    }
-    free(tab);
-}
-
-
 void    ft_read_map(int fd, t_mlx *mlx)
 {
     char *get_line;

@@ -46,7 +46,7 @@ double		ft_lint(double start, double end, double percent)
 	return (color);
 }
 
-int	ft_colors_3(t_mlx *mlx)
+int	ft_colors(t_mlx *mlx)
 {
     double	divisor;
 	double	percent;
@@ -87,3 +87,14 @@ int	ft_colors_3(t_mlx *mlx)
 	return (mlx->color.red << 16 | mlx->color.green << 8 | mlx->color.blue);
 }
 
+void	ft_change_color(int key, t_mlx *mlx)
+{
+	if (key == 114)
+		mlx->color.red += 20;
+	else if (key == 103)
+		mlx->color.green += 20;
+	else if (key == 98)
+		mlx->color.blue += 20;
+	if (mlx->img.img_ptr)
+		mlx_destroy_image(mlx->mlx_ptr, mlx->img.img_ptr);
+}

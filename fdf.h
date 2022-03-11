@@ -97,28 +97,17 @@ typedef struct  s_mlx
 }   t_mlx;
 
 
-
-
-int main(int ac, char **av);
-
-/*****MAP.C*****/
-void    ft_read_map(int fd, t_mlx *mlx);
-int	count_words(char const *s, char c);
-int **ft_init_tab(t_mlx *mlx);
-int ft_fill_tab(char *file, t_mlx *mlx);
-int   **ft_init_map(int fd, t_data *data);
-void   ft_fill_map(t_data **matrix, int y, char *line);
-void	ft_free_tab(int **tab);
+/*****FREE.C*****/
+void	ft_free_map(t_mlx *mlx);
 int	ft_exit_win(t_mlx *mlx);
+void	ft_free_tab(int **tab);
 
-void ft_bresenham(t_mlx *mlx);
-void	my_mlx_pixel_put(t_mlx *mlx, int x, int y);
-void		rotate(t_mlx *mlx);
-void	rot_x(t_mlx *mlx, double ang);
+/*****MLX_WINDOW.C*****/
+void	ft_create_window(t_mlx *mlx);
+int ft_print_window(t_mlx *mlx);
 
 /*****DRAW.C*****/
-void	li_pt_begin(t_map *map);
-void	li_pt_next(t_map *map);
+void	my_mlx_pixel_put(t_mlx *mlx, int x, int y);
 void	ft_line(t_mlx *mlx);
 void	ft_col(t_mlx *mlx);
 void	ft_draw(t_mlx *mlx);
@@ -127,15 +116,32 @@ void	ft_draw(t_mlx *mlx);
 void	ft_window_size(t_mlx *mlx);
 void	ft_padding(t_mlx *mlx);
 void	ft_space(t_mlx *mlx);
-int		ft_colors_3(t_mlx *mlx);
-// void	ft_colors_high(t_mlx *mlx);
+
+/*****COLORS.C*****/
 void	ft_setup_colors(t_mlx *mlx);
-// void	ft_colors_bis(t_mlx *mlx);
+double		ft_lint(double start, double end, double percent);
+int	ft_colors(t_mlx *mlx);
+void	ft_change_color(int key, t_mlx *mlx);
+
+/*****BRESENHAM.C*****/
+void ft_bresenham(t_mlx *mlx);
+
+/*****MAP.C*****/
+void    ft_read_map(int fd, t_mlx *mlx);
+int **ft_init_tab(t_mlx *mlx);
+int ft_fill_tab(char *file, t_mlx *mlx);
 
 /*****EVENT.C*****/
-int deal_key(int key, t_mlx *mlx);
-int mouse_hook(int key, t_mlx *mlx);
-int ft_print_window(t_mlx *mlx);
+void	ft_altitude(int key, t_mlx *mlx);
+void	ft_zoom(int key, t_mlx *mlx);
 void	ft_change_color(int key, t_mlx *mlx);
+int		deal_key(int key, t_mlx *mlx);
+void	ft_set_angle(int key, t_mlx *mlx);
+void	ft_move_mouse(int key, t_mlx *mlx);
+int mouse_hook(int key, t_mlx *mlx);
+
+void		rotate(t_mlx *mlx);
+void	rot_x(t_mlx *mlx, double ang);
+void	ft_move(int key, t_mlx *mlx);
 
 #endif
